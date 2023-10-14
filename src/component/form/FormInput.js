@@ -1,23 +1,14 @@
 "use client"
 import { Input } from "antd";
 import { useFormContext, Controller } from "react-hook-form"
-// export interface IInput {
-//     name: string;
-//     type?: string;
-//     size?: "large" | "small";
-//     value?: string | string[] | undefined;
-//     id?: string;
-//     placeholder?: string;
-//     validation?: object;
-//     label?: string
-// }
+
 
 
 
 const FormInput = ({name,type,size,value,id,placeholder,validation,label}) => {
     const {control, formState:{errors}} = useFormContext();
 
-    // const errorMessage = getErrorMessageByPropertyName(errors, name)
+    
   return (
     <>
     {label? label : null}
@@ -33,13 +24,13 @@ const FormInput = ({name,type,size,value,id,placeholder,validation,label}) => {
            size={size}
            placeholder={placeholder}
            {...field}
-           value={value ? value : field.value}  />
+           value={value ? value : field.value} required />
            
            : <Input type={type}
            size={size}
            placeholder={placeholder}
            {...field}
-           value={value ? value : field.value}  />
+           value={value ? value : field.value}  required/>
            
         )}
       />

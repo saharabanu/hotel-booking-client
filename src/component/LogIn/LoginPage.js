@@ -23,22 +23,21 @@ const LoginPage = () => {
 
   
 
-  const onSubmit = async(data) => {
-
-   
+  const onSubmit = async (data) => {
     try {
-      signInWithEmailAndPassword(data.email, data.password);
+      const { user } = await signInWithEmailAndPassword(data.email, data.password);
+  
+      // Check if the user is authenticated
       if (user) {
         // Show a success message with Swal
-        
-        // Redirect to the home page
         Swal.fire({
           icon: 'success',
           title: 'Good job!',
           text: 'Logged In Successfully!',
         });
+  
+        // Redirect to the home page
         router.push('/');
-        
       } else {
         // Show an error message with Swal
         Swal.fire({
@@ -47,13 +46,10 @@ const LoginPage = () => {
           text: 'Invalid email or password!',
         });
       }
-      
-     
     } catch (err) {
-      console.error(err.message)
+      console.error(err.message);
     }
-
-  }
+  };
   return (
     <>
 

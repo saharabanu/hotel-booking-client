@@ -377,6 +377,34 @@ header{
 
 /* btn end */
 
+/*  scrool top button */
+
+.scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #8B3EEA;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 24px;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 999;
+  }
+  
+  .scroll-to-top.visible {
+    display: block;
+  }
+  
+  .scroll-to-top:hover {
+    background-color: #000;
+    transform: scale(1.1);
+  }
+  
+
 /* main part start */
 
 .login{

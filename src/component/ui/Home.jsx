@@ -12,6 +12,7 @@ import Searchbar from "./Searchbar"
 import Subscribe from "./Subscribe"
 import TopDesination from "./TopDesination"
 import Banner from "./Banner"
+import ScrollToTopButton from "../others/ScrollToTopButton"
 
 
 const Home = () => {
@@ -31,7 +32,7 @@ const Home = () => {
 <Reviews/>
  <Partner/>
 <Subscribe/>   
-
+<ScrollToTopButton/>
     </>
   )
 }
