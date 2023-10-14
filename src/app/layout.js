@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import './globals.css'
-import { Inter } from 'next/font/google'
+import './globals.css';
+import UiHeader from '../component/ui/UiHeader';
+import UiFooter from '../component/ui/UiFooter';
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Hotel Booking',
@@ -18,7 +18,11 @@ export default function RootLayout({ children }) {
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     </Head>
-      <body className={inter.className}>{children}</body>
+      <body>
+      <UiHeader/> 
+      {children}
+      <UiFooter/> 
+      </body>
     </html>
   )
 }

@@ -11,24 +11,26 @@ import Reviews from "./Reviews"
 import Searchbar from "./Searchbar"
 import Subscribe from "./Subscribe"
 import TopDesination from "./TopDesination"
+import Banner from "./Banner"
 
 
 const Home = () => {
   return (
     <>
-<Searchbar/>
-<Beyond/>
+    <Banner/>
+  <Searchbar/>
+ <Beyond/>
 <TopDesination/>
-<HotDeals/>
+<HotDeals/> 
 <AboutUs/>
-<Offfer/>
-<PromotionalTour/>
+ <Offfer/> 
+ <PromotionalTour/>
 <Destination/>
 <Images/>
-<LatestTravelNews/>
+<LatestTravelNews/> 
 <Reviews/>
-<Partner/>
-<Subscribe/>
+ <Partner/>
+<Subscribe/>   
 
     </>
   )

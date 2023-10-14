@@ -1,7 +1,14 @@
-import {Button, Row} from 'antd'
-import Link from 'next/link'
+"use client"
+import {Button} from 'antd'
+import Link from 'next/link';
+import { useRouter } from 'next/navigation'
 
 const NotfoundPage = () => {
+  const router = useRouter()
+
+setTimeout(() => {
+  router.push("/")
+}, 5000);
   return (
     <>
     <div style={{ backgroundColor: "gray", height:'100vh', color: "#000"}}>
