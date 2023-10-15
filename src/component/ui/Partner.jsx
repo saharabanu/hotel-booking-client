@@ -5,8 +5,36 @@ import partner3 from '../../assets/images/partner3.png';
 import partner4 from '../../assets/images/partner4.png';
 import partner5 from '../../assets/images/partner5.png';
 import partner6 from '../../assets/images/partner6.png';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 
 const Partner = () => {
+
+  
+
+  const breakpoints = {
+    
+      480: {
+          slidesPerView: 3,
+         spaceBetween: 3,
+        },
+      576: {
+          slidesPerView: 3,
+         spaceBetween: 3,
+        },
+        786: {
+       slidesPerView: 5,
+          spaceBetween: 3,
+       },
+        1024: {
+        slidesPerView: 6,
+          spaceBetween: 3,
+         },
+       }
+ 
   return (
     <>
 <section id="our_partners" className="section_padding">
@@ -17,63 +45,93 @@ const Partner = () => {
           <h2>Our partners</h2>
         </div>
         <div className="">
-          <div className="partner-swiper swiper mySwiper">
-            <div className="partner_slider_area owl-theme owl-carousel partner-part swiper-wrapper">
+       
 
-              <div className="partner_logo swiper-slide ">
-                <a href="#!"><Image src={partner1} alt="logo"/></a>
-              </div>
-              {/* <div className="partner_logo swiper-slide">
+      <Swiper
+        // pagination={{
+        //   dynamicBullets: false,
+        // }}
+        // modules={[Pagination]}
+        breakpoints= {breakpoints}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
                 <a href="#!"><Image src={partner2} alt="logo"/></a>
               </div>
-              <div className="partner_logo swiper-slide">
-                <a href="#!"><Image src={partner3} alt="logo"/></a>
-              </div>
-              <div className="partner_logo swiper-slide">
-                <a href="#!"><Image src={partner4} alt="logo"/></a>
-              </div>
-              <div className="partner_logo swiper-slide">
-                <a href="#!"><Image src={partner5} alt="logo"/></a>
-              </div>
-              <div className="partner_logo swiper-slide">
-                <a href="#!"><Image src={partner6} alt="logo"/></a>
-              </div>
-              <div className="partner_logo swiper-slide">
-                <a href="#!"><Image src={partner1} alt="logo"/></a>
-              </div>
-              <div className="partner_logo swiper-slide">
+              
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
                 <a href="#!"><Image src={partner2} alt="logo"/></a>
               </div>
-              <div className="partner_logo swiper-slide">
-                <a href="#!"><Image src={partner3} alt="logo"/></a>
-              </div>
-              <div className="partner_logo swiper-slide">
-                <a href="#!"><Image src={partner4} alt="logo"/></a>
-              </div>
-              <div className="partner_logo swiper-slide">
-                <a href="#!"><Image src={partner5} alt="logo"/></a>
-              </div>
-              <div className="partner_logo swiper-slide">
-                <a href="#!"><iImage src={partner6}alt="logo"/></a>
-              </div>
-              <div className="partner_logo swiper-slide">
-                <a href="#!"><Image src={partner1} alt="logo"/></a>
-              </div>
-              <div className="partner_logo swiper-slide">
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
                 <a href="#!"><Image src={partner2} alt="logo"/></a>
               </div>
-              <div className="partner_logo swiper-slide">
-                <a href="#!"><Image src={partner3} alt="logo"/></a>
-              </div> */}
-              <div className="partner_logo swiper-slide">
-                <a href="#!"><Image src={partner4} alt="logo"/></a>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
+                <a href="#!"><Image src={partner2} alt="logo"/></a>
               </div>
-
-
-
-            </div>
-            {/* <!-- <div className="swiper-pagination"></div> --> */}
-          </div>
+        </SwiperSlide>
+        <SwiperSlide><div className="partner_logo swiper-slide">
+                <a href="#!"><Image src={partner2} alt="logo"/></a>
+              </div></SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
+                <a href="#!"><Image src={partner2} alt="logo"/></a>
+              </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
+                <a href="#!"><Image src={partner2} alt="logo"/></a>
+              </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
+                <a href="#!"><Image src={partner2} alt="logo"/></a>
+              </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
+                <a href="#!"><Image src={partner2} alt="logo"/></a>
+              </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
+                <a href="#!"><Image src={partner2} alt="logo"/></a>
+              </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
+                <a href="#!"><Image src={partner2} alt="logo"/></a>
+              </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
+                <a href="#!"><Image src={partner2} alt="logo"/></a>
+              </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
+                <a href="#!"><Image src={partner2} alt="logo"/></a>
+              </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
+                <a href="#!"><Image src={partner2} alt="logo"/></a>
+              </div>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className="partner_logo swiper-slide">
+                <a href="#!"><Image src={partner2} alt="logo"/></a>
+              </div>
+        </SwiperSlide>
+       
+      </Swiper>
+          
         </div>
 
       </div>

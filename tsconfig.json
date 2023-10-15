@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/redux/store.js", "src/redux/rootReducer.js", "src/redux/hooks.js", "src/redux/api/baseApi.js", "src/redux/api/hotelApi.js"  ],
   "exclude": [
     "node_modules"
   ]

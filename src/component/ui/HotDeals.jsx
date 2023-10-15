@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-async-client-component */
+'use client'
 import Image from "next/image";
 import hotelImg1 from '../../assets/images/hotel1.png'
 import hotelImg2 from '../../assets/images/hotel2.png'
@@ -7,15 +9,29 @@ import hotelImg5 from '../../assets/images/hotel5.png'
 import hotelImg6 from '../../assets/images/hotel6.png'
 import hotelImg7 from '../../assets/images/hotel7.png'
 import hotelImg8 from '../../assets/images/hotel8.png'
+import HotelDetails from "./HotelDetails";
+export const getData = async () => {
+  const res = await fetch("http://localhost:8000/hotels", {
+    cache: "force-cache",
+  });
+  const data = await res.json();
+  // console.log(data)
+
+  return data;
+};
+
+const HotDeals = async () => {
 
 
-const HotDeals = () => {
+   const data = await getData();
+
+
   return (
     <>
          <section id="explore_area" className="section_padding_top">
       <div className="container">
        
-
+      
 
         <div className="section_heading_center">
           <h2>Explore our hot deals</h2>
@@ -39,8 +55,9 @@ const HotDeals = () => {
 
 
         <div className="promotional_tour-part">
+        {data?.map(hotel => <HotelDetails key={hotel?.title} hotel={hotel}/>)}
 
-          <div className="theme_common_box_two img_hover">
+          {/* <div className="theme_common_box_two img_hover">
             <div className="theme_two_box_img">
               <a href="#">
                 <Image src={hotelImg1} alt="img"/>
@@ -172,7 +189,7 @@ const HotDeals = () => {
                   reviewes)</span></p>
               <h3>$99.00 <span>Price starts from</span></h3>
             </div>
-          </div>
+          </div> */}
 
         </div>
 
