@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/redux/store.js", "src/redux/rootReducer.js", "src/redux/hooks.js", "src/redux/api/baseApi.js", "src/redux/api/hotelApi.js"  ],
+, "src/redux/store.js", "src/redux/rootReducer.js", "src/redux/hooks.js", "src/redux/api/baseApi.js", "src/redux/api/hotelApi.js", "src/helpers/config/envConfig.js", "src/helpers/axios/axiosBaseQuery.js", "src/helpers/axios/axiosInstance.js", "src/redux/api/authApi.js", "src/lib/Providers.jsx", "src/services/auth.service.js", "src/utils/jwt.js", "src/utils/local-storage.js", "src/utils/schema-validators.js", "src/constants/storage.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -18,13 +18,6 @@ read:'5 min read'
 
   },
   {
-id:1,
-title:'Revolutionising the travel industryone partnership at a time',
-img: travelNewsImg1,
-read:'5 min read'
-
-  },
-  {
 id:2,
 title:'Revolutionising the travel industryone partnership at a time',
 img: travelNewsImg1,
@@ -33,13 +26,6 @@ read:'5 min read'
   },
   {
 id:3,
-title:'Revolutionising the travel industryone partnership at a time',
-img: travelNewsImg1,
-read:'5 min read'
-
-  },
-  {
-id:4,
 title:'Revolutionising the travel industryone partnership at a time',
 img: travelNewsImg1,
 read:'5 min read'
@@ -66,34 +52,48 @@ img: travelNewsImg1,
 read:'5 min read'
 
   },
+  {
+id:7,
+title:'Revolutionising the travel industryone partnership at a time',
+img: travelNewsImg1,
+read:'5 min read'
+
+  },
+  {
+id:8,
+title:'Revolutionising the travel industryone partnership at a time',
+img: travelNewsImg1,
+read:'5 min read'
+
+  },
 ]
 
 
 const LatestTravelNews = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const displayedBlogs = blogs.slice(startIndex, endIndex);
+  // const startIndex = (currentPage - 1) * itemsPerPage;
+  // const endIndex = startIndex + itemsPerPage;
+  // const displayedBlogs = blogs.slice(startIndex, endIndex);
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+  // const handlePageChange = (page) => {
+  //   setCurrentPage(page);
+  // };
 
-  const totalPages = Math.ceil(blogs.length / itemsPerPage);
-  const paginationButtons = [];
+  // const totalPages = Math.ceil(blogs.length / itemsPerPage);
+  // const paginationButtons = [];
 
-  for (let i = 1; i <= totalPages; i++) {
-    paginationButtons.push(
-      <button
-        key={i}
-        onClick={() => handlePageChange(i)}
-        className={currentPage === i ? 'active' : ''}
-      >
-        {i}
-      </button>
-    );
-  }
+  // for (let i = 1; i <= totalPages; i++) {
+  //   paginationButtons.push(
+  //     <button
+  //       key={i}
+  //       onClick={() => handlePageChange(i)}
+  //       className={currentPage === i ? 'active' : ''}
+  //     >
+  //       {i}
+  //     </button>
+  //   );
+  // }
 
   return (
     <>
@@ -108,7 +108,8 @@ const LatestTravelNews = () => {
         </div>
 
         <div className="latest-travel-part">
-{displayedBlogs?.map((blog)=>(<div className="news-div1" key={blog.id}>
+{blogs?.map((blog)=>(<>
+<div key={blog.id} className="news-div1" >
 
 <div className="latest-travel-div1">
   <div className="home_news_img">
@@ -121,11 +122,26 @@ const LatestTravelNews = () => {
   </div>
 </div>
 
-</div>))}
+</div>
+{/* <div className="news-div2">
+
+<div className="new-big-img">
+  <a href="#"><Image src={travelNewsImg5} alt="img"/></a>
+</div>
+<h3><a href="#">There are many variations of passages available but</a> </h3>
+<p>It is a long established fact that a reader will be distracted by the readable content of.
+  The point of using Lorem Ipsum is that it has a more</p>
+<p>It is a long established fact that a reader will be distracted by the readable long
+  established fact that a reader will be distracted content of a
+  page when looking at its layout.</p>
+<a href="#">Read full article <i className="fas fa-arrow-right"></i></a>
+
+</div>  */}
+
+</>))}
 
           
-  {/* Pagination buttons */}
-  {paginationButtons}
+ 
           </div>
         </div>
       </section>

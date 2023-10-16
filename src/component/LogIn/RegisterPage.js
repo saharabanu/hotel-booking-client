@@ -2,44 +2,46 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import { useRouter } from "next/navigation";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Form from "../form/Form";
 import FormInput from "../form/FormInput";
-import auth from "../firebase/firebase.auth";
+import {useUserSignupMutation} from '../../redux/api/authApi';
+import Swal from 'sweetalert2'
+import { storeUserInfo } from "../../services/auth.service";
+
 
 const RegisterPage = () => {
-  // const termsConditionsCheckbox = document.getElementById('termsConditions');
-  // if (!termsConditionsCheckbox?.checked) {
-  //   // Show an error message and prevent registration
-  //   console.error('Please agree to the Terms and Conditions.');
-  //   return;
-  // }
+  const [userSignup] = useUserSignupMutation()
+ 
   const router = useRouter();
 
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
-  // console.log(user)
+  
 
   const onSubmit = async (data) => {
     try {
-      await createUserWithEmailAndPassword(data.email, data.password);
-      Router.push("/");
-    } catch (err) {
-      if (err.message.includes("email is already in use")) {
-        // Handle the case where the email is already registered
-        // You can display an error message to the user
-        console.error("Email is already registered.");
-      } else {
-        // Handle other errors
-        console.error(err.message);
+     
+      const res = await userSignup({...data}).unwrap();
+      
+      if(res?.accessToken){
+        Swal.fire({
+          icon: 'success',
+          title: 'Hurrah!',
+          text: 'User Registered Successfully!',
+        });
+        // router.push("/");
+         
       }
+      storeUserInfo({ accessToken: res?.accessToken });
     }
+    catch(err) {
+      console.error(err.message)
+    }
+    
   };
   return (
     <>
-      {loading && <p>Loading...</p>}
-      {error && <p style={{ color: "red" }}>{error.message}</p>}
-      {user && <p style={{ color: "green" }}>User Registration successful!</p>}
+      {/* {loading && <p>Loading...</p>} */}
+      {/* {error && <p style={{ color: "red" }}>{error.message}</p>} */}
+      {/* {user && <p style={{ color: "green" }}>User Registration successful!</p>} */}
       <section id="common_author_area" className="section_padding">
         <div className="container">
           <div className="login">
@@ -55,6 +57,10 @@ const RegisterPage = () => {
                   <br />
                   <div className="form-group">
                     <FormInput name="email" type="email" size="large" label="User Email" />
+                  </div>
+                  <br />
+                  <div className="form-group">
+                    <FormInput name="phonenumber" type="number" size="large" label="User phone number" />
                   </div>
                   <br />
                   <div className="form-group">
@@ -85,14 +91,14 @@ const RegisterPage = () => {
                   <br />
                   <div className="common_form_submit">
                     <button type="primary" htmlType="submit" className="btn btn_theme btn_md">
-                      Login
+                      Sign Up
                     </button>
                   </div>
                   <div className="have_acount_area other_author_option">
                     <div className="line_or">
                       <span>or</span>
                     </div>
-                    <ul>
+                    {/* <ul>
                       <li>
                         <a href="#!">
                           <img src="assets/img/icon/google.png" alt="icon" />
@@ -108,7 +114,7 @@ const RegisterPage = () => {
                           <img src="assets/img/icon/twitter.png" alt="icon" />
                         </a>
                       </li>
-                    </ul>
+                    </ul> */}
                     <p>
                       Already have an account? <a href="/login">Login now</a>
                     </p>

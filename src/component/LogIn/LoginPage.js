@@ -4,32 +4,29 @@
 import { useRouter } from 'next/navigation';
 import Form from '../form/Form';
 import FormInput from '../form/FormInput';
-import auth from '../firebase/firebase.auth';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+
 
 import Swal from 'sweetalert2'
+import { useUserLoginMutation } from '../../redux/api/authApi';
+import { storeUserInfo } from '../../services/auth.service';
+
 
 
 
 const LoginPage = () => {
+  const [userlogin] = useUserLoginMutation();
   const router = useRouter();
-  const [
-    signInWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useSignInWithEmailAndPassword(auth);
-  
-
   
 
   const onSubmit = async (data) => {
     try {
-      const { user } = await signInWithEmailAndPassword(data.email, data.password);
-  
+      
+       const res =await userlogin({...data}).unwrap();
+      //  console.log(res)
+     
       // Check if the user is authenticated
-      if (user) {
-        // Show a success message with Swal
+      if (res?.accessToken) {
+       
         Swal.fire({
           icon: 'success',
           title: 'Good job!',
@@ -37,15 +34,11 @@ const LoginPage = () => {
         });
   
         // Redirect to the home page
-        router.push('/');
-      } else {
-        // Show an error message with Swal
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Invalid email or password!',
-        });
+        router.push('/profile');
       }
+      
+
+      storeUserInfo({ accessToken: res?.accessToken });
     } catch (err) {
       console.error(err.message);
     }
@@ -55,12 +48,7 @@ const LoginPage = () => {
 
 
 
-{loading && <p>Loading...</p>}
-            {error && <p style={{ color: 'red' }}>{error.message}</p>}
-            {user && <p style={{ color: 'green' }}> 
-  
-  LoggedIn Successfully!,
-  </p>}
+
  <section id="common_author_area" className="section_padding">
         <div className="container">
           <div className="login">
@@ -88,7 +76,7 @@ const LoginPage = () => {
                     <div className="line_or">
                       <span>or</span>
                     </div>
-                    <ul>
+                    {/* <ul>
                       <li>
                         <a href="#!">
                           <img src="assets/img/icon/google.png" alt="icon" />
@@ -104,7 +92,7 @@ const LoginPage = () => {
                           <img src="assets/img/icon/twitter.png" alt="icon" />
                         </a>
                       </li>
-                    </ul>
+                    </ul> */}
                     <p>
                       Don't have an account? <a href="/register">Register now</a>
                     </p>

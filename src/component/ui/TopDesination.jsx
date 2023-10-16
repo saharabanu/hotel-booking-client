@@ -34,7 +34,7 @@ const TopDesination = () => {
                 <h6><span>%</span> <span>Off</span></h6>
               </div>
               <h2>Holiday <br/> packages</h2>
-              <a href="/top-destinations" className="btn btn_theme btn_md">Book now</a>
+              <a href="/services" className="btn btn_theme btn_md">Book now</a>
             </div>
           </div>
 
@@ -45,11 +45,11 @@ const TopDesination = () => {
           <div className="top-destination-sm-divs">
             <div className="top-destination-div2">
               <div className="destinations_content_box img_animation">
-                <a href="/top-destinations">
+                <a href="/services">
                   <Image src={topDestiImg1} alt="Image"/>
                 </a>
                 <div className="destinations_content_inner">
-                  <h3><a href="/top-destinations">China</a></h3>
+                  <h3><a href="/services">China</a></h3>
                 </div>
               </div>
               <div className="destinations_content_box img_animation">
@@ -57,7 +57,7 @@ const TopDesination = () => {
                   <Image src={topDestiImg2} alt="Image"/>
                 </a>
                 <div className="destinations_content_inner">
-                  <h3><a href="/top-destinations">Darjeeling</a></h3>
+                  <h3><a href="/services">Darjeeling</a></h3>
                 </div>
               </div>
               <div className="destinations_content_box img_animation">
@@ -65,7 +65,7 @@ const TopDesination = () => {
                   <Image src={topDestiImg3} alt="Image"/>
                 </a>
                 <div className="destinations_content_inner">
-                  <h3><a href="/top-destinations">Malaysia</a></h3>
+                  <h3><a href="/services">Malaysia</a></h3>
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@ const TopDesination = () => {
                   <Image src={topDestiImg4} alt="Image"/>
                 </a>
                 <div className="destinations_content_inner">
-                  <h3><a href="/top-destinations">Gangtok</a></h3>
+                  <h3><a href="/services">Gangtok</a></h3>
                 </div>
               </div>
               <div className="destinations_content_box img_animation">
@@ -83,7 +83,7 @@ const TopDesination = () => {
                   <Image src={topDestiImg5} alt="Image"/>
                 </a>
                 <div className="destinations_content_inner">
-                  <h3><a href="/top-destinations">Thailand</a></h3>
+                  <h3><a href="/services">Thailand</a></h3>
                 </div>
               </div>
               <div className="destinations_content_box img_animation">
@@ -91,7 +91,7 @@ const TopDesination = () => {
                   <Image src={topDestiImg6} alt="Image"/>
                 </a>
                 <div className="destinations_content_inner">
-                  <h3><a href="/top-destinations">Australia</a></h3>
+                  <h3><a href="/services">Australia</a></h3>
                 </div>
               </div>
             </div>
@@ -101,7 +101,7 @@ const TopDesination = () => {
                   <Image src={topDestiImg7} alt="Image"/>
                 </a>
                 <div className="destinations_content_inner">
-                  <h3><a href="/top-destinations">London</a></h3>
+                  <h3><a href="/services">London</a></h3>
                 </div>
               </div>
               <div className="destinations_content_box img_animation">
@@ -109,11 +109,11 @@ const TopDesination = () => {
                   <Image src={topDestiImg8} alt="Image"/>
                 </a>
                 <div className="destinations_content_inner">
-                  <h3><a href="/top-destinations">USA</a></h3>
+                  <h3><a href="/services">USA</a></h3>
                 </div>
               </div>
               <div className="destinations_content_box">
-                <a href="/top-destinations" className="btn btn_theme btn_md w-100">View all</a>
+                <a href="/services" className="btn btn_theme btn_md w-100">View all</a>
               </div>
             </div>
           </div>

@@ -1,27 +1,20 @@
 'use client'
 import Image from "next/image";
 import logoImg  from '../../assets/images/logo.png';
-import auth from "../firebase/firebase.auth";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { signOut } from "firebase/auth";
- 
+import { isLoggedIn, removeUserInfo } from "../../services/auth.service";
+import { useRouter } from "next/navigation";
+import { authKey } from "../../constants/storage";
+
+
 
 const UiHeader = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const userLoggedIn = isLoggedIn();
+  const router = useRouter();
 
   const logout = () => {
-    signOut(auth);
+    removeUserInfo(authKey);
+    router.push("/login");
   };
-  if (error) {
-   
-    <div>
-      <p>Error: {error?.message}</p>
-    </div>
- 
-}
-if (loading) {
-  <p>Loading...</p>
-}
   return (
     <>
       <header>
@@ -40,8 +33,8 @@ if (loading) {
           <menu className="menu" id="navbarList">
             <ul>
               <li><a href="/">Home</a></li>
-              <li><a href="/">Categories</a></li>
-              <li><a href="/">Pages</a></li>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/about">About Us</a></li>
              <li><a href="/dashboard">Dashboard</a></li>
               <li><a href="/">News</a></li>
               <li><a href="/">Contact</a></li>
@@ -51,12 +44,13 @@ if (loading) {
           <div className="middle-nav-last-div">
          
 
-         {!user?.email &&<a href="/login">Login</a>}
+        
             
           
-            {!! user?.email && <button onClick={logout}>Log out</button>}
+            { userLoggedIn ?  <button onClick={logout}>Log out</button> : <a href="/login">Login</a>}
             
-              {user?.email &&  <p>{user?.email}</p>}
+             
+             
             
 
           </div>

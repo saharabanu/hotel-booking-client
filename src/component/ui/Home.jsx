@@ -1,4 +1,4 @@
-import AboutUs from "./AboutUs"
+'use client'
 import Beyond from "./Beyond"
 import Destination from "./Destination"
 import HotDeals from "./HotDeals"
@@ -23,7 +23,7 @@ const Home = () => {
  <Beyond/>
 <TopDesination/>
 <HotDeals/> 
-<AboutUs/>
+
  <Offfer/> 
  <PromotionalTour/>
 <Destination/>
