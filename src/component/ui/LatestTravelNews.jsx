@@ -7,6 +7,7 @@ import travelNewsImg3 from '../../assets/images/latest-travel3.png'
 import travelNewsImg4 from '../../assets/images/latest-travel4.png'
 import travelNewsImg5 from '../../assets/images/latest-travel5-big.png';
 import { useState } from 'react'
+import NewsDetails from './NewsDetails';
 const itemsPerPage = 4;
 
 const blogs = [
@@ -61,9 +62,12 @@ read:'5 min read'
   },
   {
 id:8,
-title:'Revolutionising the travel industryone partnership at a time',
-img: travelNewsImg1,
-read:'5 min read'
+title:'There are many variations of passages available but',
+img: travelNewsImg5,
+read:'5 min read',
+desc1:'It is a long established fact that a reader will be distracted by the readable content of.The point of using Lorem Ipsum is that it has a more',
+desc2:'It is a long established fact that a reader will be distracted by the readable long established fact that a reader will be distracted content of a page when looking at its layout.',
+
 
   },
 ]
@@ -108,12 +112,14 @@ const LatestTravelNews = () => {
         </div>
 
         <div className="latest-travel-part">
-{blogs?.map((blog)=>(<>
-<div key={blog.id} className="news-div1" >
+{/* {blogs?.map((blog)=> (<NewsDetails key={blog.id} blog={blog}/>))} */}
+
+<div>
+{blogs?.slice(0,6)?.map((blog) => (<div key={blog.id} className="news-div1" >
 
 <div className="latest-travel-div1">
   <div className="home_news_img">
-    <a href="#"><Image src={travelNewsImg1} alt="img"/></a>
+    <a href="#"><Image src={blog.img} alt="img"/></a>
   </div>
   <div className="home_news_content">
     <h3><a href="#">{blog.title}</a></h3>
@@ -122,23 +128,26 @@ const LatestTravelNews = () => {
   </div>
 </div>
 
+</div> 
+ ))}
 </div>
-{/* <div className="news-div2">
+
+
+  
+  <div>
+  {blogs?.slice(7)?.map((blog)=>( <div  key={blog.id}className="news-div2">
 
 <div className="new-big-img">
-  <a href="#"><Image src={travelNewsImg5} alt="img"/></a>
+  <a href="#"><Image src={blog.img} alt="img"/></a>
 </div>
-<h3><a href="#">There are many variations of passages available but</a> </h3>
-<p>It is a long established fact that a reader will be distracted by the readable content of.
-  The point of using Lorem Ipsum is that it has a more</p>
-<p>It is a long established fact that a reader will be distracted by the readable long
-  established fact that a reader will be distracted content of a
-  page when looking at its layout.</p>
+<h3><a href="#">{blog.title}</a> </h3>
+<p>{blog.desc1}</p>
+<p>{blog.desc2}</p>
 <a href="#">Read full article <i className="fas fa-arrow-right"></i></a>
 
-</div>  */}
-
-</>))}
+</div>))}
+ 
+  </div>
 
           
  

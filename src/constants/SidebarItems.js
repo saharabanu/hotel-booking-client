@@ -1,9 +1,8 @@
-
 import {TableOutlined,ProfileOutlined,ScheduleOutlined,ThunderboltOutlined,CreditCardOutlined,FileTextOutlined,AppstoreOutlined} from "@ant-design/icons";
 import Link from "next/link";
 
 
-export const SidebarItems = (role =user) => {
+export const SidebarItems = (role) => {
   const defaultSidebarItems = [
     {
      label: "Profile",
@@ -11,17 +10,14 @@ export const SidebarItems = (role =user) => {
       icon: <ProfileOutlined />,
       children: [
         {
-            label: <Link href={`/${role}`}>Account Profile</Link>,
-          key: `/${role}`,
+            label: <Link href='/profile'>View Profile</Link>,
+          key: '/profile',
         },
+        
         
       ],
     },
-    {
-      label: <Link href={`/${role}/my-profile`}>My Profile</Link>,
-      icon: <TableOutlined/>,
-       key: `/${role}/my-profile`,
-     },
+    
      {
       label: <Link href={`/${role}/notification`}>Notification</Link>,
       icon: <TableOutlined/>,
@@ -29,23 +25,21 @@ export const SidebarItems = (role =user) => {
      },
   ];
   const userSidebarItems = [
-    {
-     label: <Link href={`${role}`}>Dashboard</Link>,
-     icon: <TableOutlined/>,
-      key: `/${role}/manage-student`,
-    },
-    {
-     label: <Link href={`/${role}/my-booking`}>My Booking</Link>,
-     icon: <TableOutlined/>,
-      key: `/${role}/my-booking`,
-    },
-    
+    ...defaultSidebarItems,
     
     {
      label: <Link href={`/${role}/my-booking`}>My Booking</Link>,
      icon: <TableOutlined/>,
       key: `/${role}/my-booking`,
-    }
+    },
+    {
+      label: <Link href='/user/payment'>Payment</Link>,
+      icon: <TableOutlined/>,
+       key: '/user/payment',
+     },
+    
+    
+    
   ];
 
   const adminSidebarItems = [
@@ -56,15 +50,16 @@ export const SidebarItems = (role =user) => {
        key: `/${role}/user-manage`,
      },
     {
-      label: <Link href={`/${role}/content-manage`}>Content Management</Link>,
+      label: <Link href={`/${role}/service-manage`}>Content Management</Link>,
       icon: <TableOutlined/>,
-       key: `/${role}/content-manage`,
+       key: `/${role}/service-manage`,
      },
     {
       label: <Link href={`/${role}/booking-manage`}>Booking Management</Link>,
       icon: <TableOutlined/>,
        key: `/${role}/booking-manage`,
      },
+     
     
 
 

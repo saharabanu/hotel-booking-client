@@ -27,8 +27,11 @@ const RegisterPage = () => {
           title: 'Hurrah!',
           text: 'User Registered Successfully!',
         });
-        // router.push("/");
+        router.push('/')
          
+      }
+      else{
+        alert("User does Not registered")
       }
       storeUserInfo({ accessToken: res?.accessToken });
     }
@@ -39,9 +42,7 @@ const RegisterPage = () => {
   };
   return (
     <>
-      {/* {loading && <p>Loading...</p>} */}
-      {/* {error && <p style={{ color: "red" }}>{error.message}</p>} */}
-      {/* {user && <p style={{ color: "green" }}>User Registration successful!</p>} */}
+     
       <section id="common_author_area" className="section_padding">
         <div className="container">
           <div className="login">
@@ -116,7 +117,7 @@ const RegisterPage = () => {
                       </li>
                     </ul> */}
                     <p>
-                      Already have an account? <a href="/login">Login now</a>
+                      Already have an account? <a href="/signin">Login now</a>
                     </p>
                   </div>
                 </Form>

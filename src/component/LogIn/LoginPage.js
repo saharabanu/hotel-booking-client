@@ -7,21 +7,23 @@ import FormInput from '../form/FormInput';
 
 
 import Swal from 'sweetalert2'
-import { useUserLoginMutation } from '../../redux/api/authApi';
+
 import { storeUserInfo } from '../../services/auth.service';
+import { useUserLoginMutation } from '../../redux/api/authApi';
+import { message } from 'antd';
 
 
 
 
 const LoginPage = () => {
-  const [userlogin] = useUserLoginMutation();
+  const [userLogin] = useUserLoginMutation()
   const router = useRouter();
   
 
   const onSubmit = async (data) => {
     try {
       
-       const res =await userlogin({...data}).unwrap();
+       const res =await userLogin({...data}).unwrap();
       //  console.log(res)
      
       // Check if the user is authenticated
@@ -35,6 +37,9 @@ const LoginPage = () => {
   
         // Redirect to the home page
         router.push('/profile');
+      }
+      else{
+        message.error("OOOPs!! Your email or password doesn't match")
       }
       
 
@@ -76,25 +81,9 @@ const LoginPage = () => {
                     <div className="line_or">
                       <span>or</span>
                     </div>
-                    {/* <ul>
-                      <li>
-                        <a href="#!">
-                          <img src="assets/img/icon/google.png" alt="icon" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#!">
-                          <img src="assets/img/icon/facebook.png" alt="icon" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#!">
-                          <img src="assets/img/icon/twitter.png" alt="icon" />
-                        </a>
-                      </li>
-                    </ul> */}
+                    
                     <p>
-                      Don't have an account? <a href="/register">Register now</a>
+                      Don't have an account? <a href="/signup">Register now</a>
                     </p>
                   </div>
                 </Form>

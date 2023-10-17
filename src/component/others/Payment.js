@@ -123,7 +123,7 @@ const Payment = () => {
 
           {selectedPaymentMethod === 'payoneer' && (
             <div className="payoneer_payment payment_toggle black">
-            <div className="row">
+             <div className="row">
                               <div className="col-lg-6">
                                 <div className="form-group">
                                   <input

@@ -7,13 +7,15 @@ import { authKey } from "../../constants/storage";
 
 
 
+
 const UiHeader = () => {
+ 
   const userLoggedIn = isLoggedIn();
   const router = useRouter();
 
   const logout = () => {
     removeUserInfo(authKey);
-    router.push("/login");
+    router.push("/signin");
   };
   return (
     <>
@@ -35,11 +37,11 @@ const UiHeader = () => {
               <li><a href="/">Home</a></li>
               <li><a href="/services">Services</a></li>
               <li><a href="/about">About Us</a></li>
-             <li><a href="/dashboard">Dashboard</a></li>
-              <li><a href="/">News</a></li>
-              <li><a href="/">Contact</a></li>
+              <li><a href="/contact">Give Feedback</a></li>
+              {userLoggedIn && <li><a href="/profile">Profile</a></li>}
 
             </ul>
+            
           </menu>
           <div className="middle-nav-last-div">
          
@@ -47,10 +49,10 @@ const UiHeader = () => {
         
             
           
-            { userLoggedIn ?  <button onClick={logout}>Log out</button> : <a href="/login">Login</a>}
-            
-             
-             
+            { userLoggedIn &&  <button onClick={logout} className="logout-btn">Log out</button> }
+            {
+              !userLoggedIn &&  <a href="/signin">Login</a>
+            }
             
 
           </div>

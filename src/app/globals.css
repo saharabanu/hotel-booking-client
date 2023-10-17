@@ -40,6 +40,23 @@ ul li{
     align-items: center;
     padding: 20% 0;
 }
+/* logout btn */
+.logout-btn{
+    background-color:transparent;
+    color:#fff;
+    border:1px solid #fff;
+    border-radius: 5px;
+    padding: 7px 10px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.4s all;
+}
+.logout-btn:hover{
+    background-color:#000;
+    color:#fff;
+    border:0;
+    
+}
 .section_heading_center{
     padding-bottom: 30px;
 }
@@ -1508,7 +1525,38 @@ details page style end
     background-color: #e3e3e8;
 }
 
+/* profile */
 
+
+.profile-info{
+    /* background-color: #D2D2D2; */
+    padding: 40px 50px;
+    margin-top:40px ;
+    max-width: 400px;
+}
+
+/* dasboard  */
+
+.dash-main-layout{
+    display: flex;
+    gap:20px
+    /* grid-template-columns: repeat(2,1fr); */
+    
+}
+
+.booking-profile  {
+    background-color: #F3F6FD;
+    padding: 20px ;
+}
+.profile-left-div{
+    background-color: #F3F6FD;
+    padding: 5px ;
+}
+.profile-right-div{
+    background-color: #F3F6FD;
+    padding: 10px ;
+    margin-left: 10px;
+}
 
 /* ____
 _____
@@ -1705,6 +1753,12 @@ _____ */
     grid-template-columns: 1fr !important;
     
 }
+/* dashboard */
+.dash-main-layout{
+    flex-direction: column;
+    /* grid-template-columns: repeat(2,1fr); */
+    
+}
 
   }
 
@@ -1870,6 +1924,12 @@ _____ */
     grid-template-columns: 1fr !important;
     
 }
+/* dashboard */
+.dash-main-layout{
+    flex-direction: column;
+    /* grid-template-columns: repeat(2,1fr); */
+    
+}
 
   }
 
@@ -2032,6 +2092,12 @@ _____ */
     grid-template-columns: 1fr !important;
     
 }
+/* dashboard */
+.dash-main-layout{
+    flex-direction: column;
+    /* grid-template-columns: repeat(2,1fr); */
+    
+}
 
   }
 @media only screen and (max-width: 992px) {
@@ -2054,9 +2120,9 @@ _____ */
     /* justify-content: space-between;
     align-items: center; */
 }
-.menu{
+/* .menu{
     display: none;
-}
+} */
 .middle-nav-last-div{
     display: none;
 }

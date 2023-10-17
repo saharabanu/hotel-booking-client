@@ -2,7 +2,6 @@
 import Beyond from "./Beyond"
 import Destination from "./Destination"
 import HotDeals from "./HotDeals"
-import Images from "./Images"
 import LatestTravelNews from "./LatestTravelNews"
 import Offfer from "./Offfer"
 import Partner from "./Partner"
@@ -27,7 +26,7 @@ const Home = () => {
  <Offfer/> 
  <PromotionalTour/>
 <Destination/>
-<Images/>
+{/* <Images/> */}
 <LatestTravelNews/> 
 <Reviews/>
  <Partner/>

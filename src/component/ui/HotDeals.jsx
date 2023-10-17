@@ -3,20 +3,32 @@
 import HotelDetails from "./HotelDetails";
 import { useGetServicesQuery } from "../../redux/api/serviceApi";
 import { useState } from "react";
-// export const getData = async () => {
-//   const res = await fetch("http://localhost:8000/hotels", {
-//     cache: "force-cache",
-//   });
-//   const data = await res.json();
-//   // console.log(data)
+import { Button, Input } from "antd";
+import { useDebounced } from "../../redux/hooks";
+import {   RedoOutlined } from "@ant-design/icons";
 
-//   return data;
-// };
 
 const HotDeals = () => {
-  const { data, loading } = useGetServicesQuery();
+
+  const query = {};
+  
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const debouncedSearchTerm = useDebounced({
+    searchQuery: searchTerm,
+    delay: 600,
+  });
+
+  if (!!debouncedSearchTerm) {
+    query["searchTerm"] = debouncedSearchTerm;}
+
+  const { data, loading } = useGetServicesQuery({...query});
   // console.log(data)
   const services = data?.services;
+
+
+
+  
 
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -31,6 +43,9 @@ const HotDeals = () => {
     setSelectedCategory(category);
   };
 
+  const resetFilters = () => {
+    setSearchTerm("");
+  };
   return (
     <>
       <section id="explore_area" className="section_padding_top">
@@ -85,6 +100,21 @@ const HotDeals = () => {
                 </button>
               </div>
             </nav>
+          </div>
+          <div className="hotel-search" style={{textAlign:'center',margin:'10px 0'}}>
+          <Input
+          size="large"
+          placeholder="Search"
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{
+            width: "20%",
+          }}
+        />
+        { (!!searchTerm) && (
+            <Button style={{ marginLeft: "5px" }} type="primary" onClick={resetFilters}>
+              <RedoOutlined />
+            </Button>
+          )}
           </div>
 
           <div className="promotional_tour-part">

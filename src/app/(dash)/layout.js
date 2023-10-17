@@ -4,6 +4,9 @@ import { useRouter } from 'next/navigation';
 import {useState, useEffect} from 'react'
 import Sidebar from '../../component/ui/dash/Sidebar'
 import { isLoggedIn } from '../../services/auth.service';
+import Notification from './admin/notification/page';
+
+
 
 const DashboardLayout = ({children}) => {
   const loggedIn = isLoggedIn();
@@ -13,10 +16,10 @@ const DashboardLayout = ({children}) => {
 
  useEffect(()=>{
  if(!loggedIn){
- router.push("/login")
+ router.push("/signin")
  }
  setLoading(true)
- },[router])
+ },[router,loggedIn])
 
  if(!loading){
   return <Row justify='center' align='middle' style={{margin:'100px 0'}}>
@@ -29,15 +32,15 @@ const DashboardLayout = ({children}) => {
   
   return (
     <>
-<Layout hasSider>
-         
-      <Sidebar />
-      
-      {/* <Contents> */}
-      {children}
-      {/* </Contents> */}
-      
-      </Layout>
+    <div className="dash-main-layout">
+      <div className="das-sidebar">
+         <Sidebar/>
+      </div>
+      <div className="dash-content">
+      {/* <Notification/> */}
+           {children}
+      </div>
+    </div>
 
     </>
   )

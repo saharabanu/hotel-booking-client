@@ -4,7 +4,7 @@ import {useGetServicesQuery} from '../../../redux/api/serviceApi';
 
 import HotelBreadCrumb from "../../../component/ui/HotelBreadCrumb";
 
-
+import { Pagination } from 'antd';
 const AllServicePage = () => {
   const base = 'Home'
     const {data, loading} = useGetServicesQuery();
@@ -29,6 +29,8 @@ const AllServicePage = () => {
               <HotelDetails key={hotel?.title} hotel={hotel} />
             ))}
           </div>
+
+          <Pagination defaultCurrent={6} total={500} />
     </div>
   )
 }
