@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import hotelImg1 from "../../assets/images/hotel1.png";
 import hotelImg2 from "../../assets/images/hotel2.png";
@@ -5,6 +6,89 @@ import hotelImg3 from "../../assets/images/hotel3.png";
 import hotelImg4 from "../../assets/images/hotel4.png";
 import hotelImg5 from "../../assets/images/hotel5.png";
 import hotelImg6 from "../../assets/images/hotel6.png";
+import Heading from '../../component/ui/reUsable/Heading';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Pagination } from 'swiper/modules';
+import PromotionalTourCard from '../../component/ui/PromotionalTourCard'
+
+
+const tours = [
+  {
+    id: 1,
+    img: hotelImg1,
+    title:'New beach, Thailand',
+    address: 'Kantua hotel, Thailand',
+    rating:4.8/5,
+    review:1214,
+    price:34
+  },
+  {
+    id: 2,
+    img: hotelImg2,
+    title:'Hotel paradise international',
+    address: 'Indonesia',
+    rating:4,
+    review:123,
+    price:56
+  },
+  {
+    id: 3,
+    img: hotelImg3,
+    title:'Hotel kualalampur',
+    address: 'Kualalampur',
+    rating:4.5,
+    review:1045,
+    price:67
+  },
+  {
+    id: 4,
+    img: hotelImg4,
+    title:'Hotel deluxe',
+    address: 'Mariana island',
+    rating:4.8/2,
+    review:875,
+    price:79
+  },
+  {
+    id: 5,
+    img: hotelImg5,
+    title:'Beach view',
+    address: 'Thailand grand suit',
+    rating:4.9,
+    review:340,
+    price:48
+  },
+  {
+    id: 6,
+    img: hotelImg6,
+    title:'Zefi resort and spa',
+    address: 'Long island',
+    rating:4.8/5,
+    review:1214,
+    price:99
+  },
+];
+
+
+const breakpoints = {
+    
+  480: {
+      slidesPerView: 1,
+     spaceBetween: 30,
+    },
+  576: {
+      slidesPerView: 1,
+     spaceBetween: 30,
+    },
+    786: {
+   slidesPerView: 2,
+      spaceBetween: 30,
+   },
+    1024: {
+    slidesPerView: 4,
+      spaceBetween: 30,
+     },
+   }
 
 const PromotionalTour = () => {
   return (
@@ -13,149 +97,42 @@ const PromotionalTour = () => {
         <div className="container">
           {/* <!-- Section Heading --> */}
 
-          <div className="section_heading_center">
-            <h2>Our best promotional tours</h2>
-          </div>
+          <Heading title="Our best promotional tours"/>
+         
 
-          <div className="promotional_tour-part ">
-            <div className="theme_common_box_two img_hover ">
-              <div className="theme_two_box_img ">
-                <a href="hotel-details.html">
-                  <Image src={hotelImg1} alt="img" />
-                </a>
-                <p>
-                  <i className="fas fa-map-marker-alt"></i>New beach, Thailand
-                </p>
-              </div>
-              <div className="theme_two_box_content">
-                <h4>
-                  <a href="hotel-details.html">Kantua hotel, Thailand</a>
-                </h4>
-                <p>
-                  <span className="review_rating">4.8/5 Excellent</span>{" "}
-                  <span className="review_count">(1214 reviewes)</span>
-                </p>
-                <h3>
-                  $99.00 <span>Price starts from</span>
-                </h3>
-              </div>
-            </div>
-            <div className="theme_common_box_two img_hover swiper-slide">
-              <div className="theme_two_box_img">
-                <a href="hotel-details.html">
-                  <Image src={hotelImg2} alt="img" />
-                </a>
-                <p>
-                  <i className="fas fa-map-marker-alt"></i>Indonesia
-                </p>
-                {/* <!-- <div className="discount_tab">
-                  <span>50%</span>
-                </div> --> */}
-              </div>
-              <div className="theme_two_box_content">
-                <h4>
-                  <a href="hotel-details.html">Hotel paradise international</a>
-                </h4>
-                <p>
-                  <span className="review_rating">4.8/5 Excellent</span>{" "}
-                  <span className="review_count">(1214 reviewes)</span>
-                </p>
-                <h3>
-                  $99.00 <span>Price starts from</span>
-                </h3>
-              </div>
-            </div>
-            <div className="theme_common_box_two img_hover swiper-slide">
-              <div className="theme_two_box_img">
-                <a href="hotel-details.html">
-                  <Image src={hotelImg3} alt="img" />
-                </a>
-                <p>
-                  <i className="fas fa-map-marker-alt"></i>Kualalampur
-                </p>
-              </div>
-              <div className="theme_two_box_content">
-                <h4>
-                  <a href="hotel-details.html">Hotel kualalampur</a>
-                </h4>
-                <p>
-                  <span className="review_rating">4.8/5 Excellent</span>{" "}
-                  <span className="review_count">(1214 reviewes)</span>
-                </p>
-                <h3>
-                  $99.00 <span>Price starts from</span>
-                </h3>
-              </div>
-            </div>
-            <div className="theme_common_box_two img_hover swiper-slide">
-              <div className="theme_two_box_img">
-                <a href="hotel-details.html">
-                  <Image src={hotelImg4} alt="img" />
-                </a>
-                <p>
-                  <i className="fas fa-map-marker-alt"></i>Mariana island
-                </p>
-                {/* <!-- <div className="discount_tab">
-                  <span>50%</span>
-                </div> --> */}
-              </div>
-              <div className="theme_two_box_content">
-                <h4>
-                  <a href="hotel-details.html">Hotel deluxe</a>
-                </h4>
-                <p>
-                  <span className="review_rating">4.8/5 Excellent</span>{" "}
-                  <span className="review_count">(1214 reviewes)</span>
-                </p>
-                <h3>
-                  $99.00 <span>Price starts from</span>
-                </h3>
-              </div>
-            </div>
-            <div className="theme_common_box_two img_hover swiper-slide">
-              <div className="theme_two_box_img">
-                <a href="hotel-details.html">
-                  <Image src={hotelImg5} alt="img" />
-                </a>
-                <p>
-                  <i className="fas fa-map-marker-alt"></i>Beach view
-                </p>
-              </div>
-              <div className="theme_two_box_content">
-                <h4>
-                  <a href="hotel-details.html">Thailand grand suit</a>
-                </h4>
-                <p>
-                  <span className="review_rating">4.8/5 Excellent</span>{" "}
-                  <span className="review_count">(1214 reviewes)</span>
-                </p>
-                <h3>
-                  $99.00 <span>Price starts from</span>
-                </h3>
-              </div>
-            </div>
-            <div className="theme_common_box_two img_hover swiper-slide">
-              <div className="theme_two_box_img">
-                <a href="hotel-details.html">
-                  <Image src={hotelImg6} alt="img" />
-                </a>
-                <p>
-                  <i className="fas fa-map-marker-alt"></i>Long island
-                </p>
-              </div>
-              <div className="theme_two_box_content">
-                <h4>
-                  <a href="hotel-details.html">Zefi resort and spa</a>
-                </h4>
-                <p>
-                  <span className="review_rating">4.8/5 Excellent</span>{" "}
-                  <span className="review_count">(1214 reviewes)</span>
-                </p>
-                <h3>
-                  $99.00 <span>Price starts from</span>
-                </h3>
-              </div>
-            </div>
+          <div className=" ">
+
+          <Swiper
+        slidesPerView={3}
+        spaceBetween={30}
+        freeMode={true}
+
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints= {breakpoints}
+        modules={[FreeMode, Pagination]}
+        className="mySwiper"
+      >
+{tours.map((tour) => (<SwiperSlide key={tour.id}>
+  <PromotionalTourCard  tour={tour} />
+</SwiperSlide>
+               
+              ))}
+        
+        
+      </Swiper>
+            
+
+
+
+            
+
+
+           
+
+
+            
           </div>
         </div>
       </section>

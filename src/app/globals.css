@@ -845,6 +845,27 @@ header{
     padding-bottom: 70px ;
     
 }
+.paginate{
+    margin-bottom: 20px;
+}
+
+:where(.css-dev-only-do-not-override-amq5gd).ant-pagination .ant-pagination-item-active a {
+    color: #8B3EEA;
+    border: 1px solid #8B3EEA;
+    font-size: 16px;
+}
+
+.swiper-pagination-bullet-active {
+    
+    background: #8B3EEA !important;
+}
+
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 23px !important;
+    top: 350px !important;
+    left: 11px;
+    width: 100%;
+}
 .theme_two_box_img {
     position: relative;
     overflow: hidden;
@@ -1086,9 +1107,7 @@ grid-gap:20px;
 margin: 18px 0;
 
 }
-.review-part img{
-    
-}
+
 .all_review_date_area{
     display: flex;
     justify-content: space-between;
@@ -1557,6 +1576,70 @@ details page style end
     padding: 10px ;
     margin-left: 10px;
 }
+
+
+
+
+
+/* Common banner */
+
+#common_banner {
+    background-image: url("../assets/images/common-banner.png");
+    padding: 120px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.common_bannner_text {
+    text-align: center;
+}
+
+.common_bannner_text h2 {
+    color: #fff;
+    font-weight: 400;
+}
+
+/* .common_bannner_text ul {
+    padding-top: 20px;
+} */
+
+ .common_bannner_text ul li {
+    display: inline-block;
+    color: #fff;
+    padding-left: 7px;
+}
+
+.common_bannner_text ul li:first-child {
+    padding-left: 0px;
+}
+/*
+.common_bannner_text ul li span {
+    padding-right: 5px;
+}
+
+
+.common_bannner_text ul li a {
+    color: #877e7e; 
+    font-size: 18px;
+    padding: 0 10px;
+   
+
+} */
+
+/* .common_bannner_text ul li a:hover {
+    color: #8B3EEA;
+} */
+/* .banner-links {
+    color:#fff;
+    position: absolute;
+    top:260px;
+    left:540px;
+    
+} */
+
+
 
 /* ____
 _____

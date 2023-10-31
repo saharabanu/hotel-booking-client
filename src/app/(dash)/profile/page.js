@@ -3,10 +3,16 @@ import { EyeOutlined} from '@ant-design/icons';
 import DynamicTable from '../../../component/others/DynamicTable'
 
 import HotelBreadCrumb from "../../../component/ui/HotelBreadCrumb";
+import { getUserInfo } from '../../../services/auth.service';
+import {useGetSingleUserQuery} from '../../../redux/api/userApi'
 
 
 
 const ProfilePage = () => {
+  const {id} = getUserInfo()
+  const {data} = useGetSingleUserQuery(id);
+  
+
   
   const columns = [
     {
@@ -138,13 +144,13 @@ const ProfilePage = () => {
       <br />
       <div >
         <div className='profile-left-div'>
-        <h2> User Info</h2>
+        <h2> Hey!! {data?.name} See Your Info</h2>
       <div className="profile-info">
-           <h2>Name:  {"  "} Kajol Ahmed</h2>
-           <h2>Email:  {"  "}kajol@gmail.com </h2>
-           <h2>Contact Number:  {"  "} +84763523</h2>
-           <h2>Role:  {"  "}  User</h2>
-           <a href="/edit">Edit Profile</a>
+           <h2>Name:  {"  "} {data?.name}</h2>
+           <h2>Email:  {"  "}{data?.email} </h2>
+           <h2>Contact Number:  {"  "} {data?.phonenumber}</h2>
+           <h2>Role:  {"  "}  {data?.role}</h2>
+           <a href={`/edit-profile/${data?.id}`}>Edit Profile</a>
       </div>
         </div>
         <br /> <br />

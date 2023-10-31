@@ -30,7 +30,7 @@ const Home = () => {
 <LatestTravelNews/> 
 <Reviews/>
  <Partner/>
-<Subscribe/>   
+
 <ScrollToTopButton/>
     </>
   )

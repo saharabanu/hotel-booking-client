@@ -8,13 +8,13 @@ const HotelBreadCrumb = ({items}
   const breadCrumbItems = [
     {
       title: (<Link href="/">
-        <HomeOutlined/>
+       
       </Link>)
     },
     ...items.map((item)=> {
       return {
         title: item.link ? (
-          <Link href={item.link}> {item.label} </Link>
+          <Link href={item.link} className='breadCrumb-links' >  {item.label} </Link>
         ): <span>{item.label}</span>
       }
      

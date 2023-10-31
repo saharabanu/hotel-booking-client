@@ -11,6 +11,7 @@ import { authKey } from "../../constants/storage";
 const UiHeader = () => {
  
   const userLoggedIn = isLoggedIn();
+  // console.log(userLoggedIn?.name)
   const router = useRouter();
 
   const logout = () => {
@@ -56,7 +57,7 @@ const UiHeader = () => {
             
 
           </div>
-          <i className="fa-solid fa-bars toggle-icon" id="navbarToggle"></i>
+         
         </div>
 
 

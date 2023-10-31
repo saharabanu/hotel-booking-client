@@ -48,6 +48,8 @@ const LoginPage = () => {
       console.error(err.message);
     }
   };
+// console.log(storeUserInfo())
+
   return (
     <>
 

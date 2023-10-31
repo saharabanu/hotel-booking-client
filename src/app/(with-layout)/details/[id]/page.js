@@ -13,8 +13,10 @@ const iconImage3 = "https://andit.co/projects/html/and-tour/demo/assets/img/icon
 const bigImage = "https://andit.co/projects/html/and-tour/demo/assets/img/hotel/hotel-big-1.png";
 const smImage1 = "https://andit.co/projects/html/and-tour/demo/assets/img/hotel/small-1.png";
 import ModalButton from '../../../../component/modal/ModalButton'
+import CommonBanner from "../../../../component/ui/CommonBanner";
 
 const DetailsPage = ({ params }) => {
+  const currentUrl = window.location.pathname; 
   const { id } = params;
   const { data } = useGetSingleServiceQuery(id);
   const base = 'Home';
@@ -24,27 +26,17 @@ const DetailsPage = ({ params }) => {
   const showModal = () => {
     setIsModalOpen(true);
   };
-  
+  const bannerLinks = [
+    { text: 'Services', url: '/services' },
+    { text: 'Details' },
+    // Add more links as needed
+  ];
   // console.log(data?.address)
   return (
     <>
+    <CommonBanner title="Service-Details" links={bannerLinks} />
       <div className="container">
-      <HotelBreadCrumb  items={[
-          {
-            label: `${base}`,
-            link: '/',
-          },
-          {
-            label: 'Services',
-            link: '/services'
-            
-          },
-          {
-            label: 'Hotel-details',
-           
-            
-          },
-        ]} style={{paddingLeft:"20px "}}/>
+     
 
 
         <div className="details-main-section">

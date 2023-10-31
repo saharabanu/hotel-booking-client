@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import Heading from './reUsable/Heading';
 
 const Partner = () => {
 
@@ -41,10 +42,8 @@ const Partner = () => {
       <div className="">
         {/* <!-- Section Heading --> */}
 
-        <div className="section_heading_center">
-          <h2>Our partners</h2>
-        </div>
-        <div className="">
+        <Heading title="Our partners"/>
+        <div className="" style={{paddingBottom: "30px"}}>
        
 
       <Swiper

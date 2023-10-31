@@ -28,7 +28,7 @@ const HotelDetails = ({hotel}) => {
             </div>
             <div>
              <a href="/booking">
-             <button style={{marginLeft:"20px", marginBottom:"10px", backgroundColor:'#8B3EEA',color:'#fff', border:"0", cursor:'pointer'}}>Book Now</button>
+             <button style={{marginLeft:"20px", marginBottom:"10px", backgroundColor:'#8B3EEA',color:'#fff', border:"0", cursor:'pointer', borderRadius: "5px", padding: '10px 7px'}}>Book Now</button>
              </a>
               
             </div>

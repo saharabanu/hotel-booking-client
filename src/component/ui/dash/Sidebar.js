@@ -24,7 +24,7 @@ const Sidebar = () => {
       router.push("/signin");
     };
 
-    const {role }= getUserInfo() 
+    const {role}= getUserInfo() 
     
     
     
