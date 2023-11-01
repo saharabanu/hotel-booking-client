@@ -1,4 +1,5 @@
 import RegisterPage from '../../../component/LogIn/RegisterPage'
+import CommonBanner from '../../../component/ui/CommonBanner';
 
 export const metadata = {
   title: "Register",
@@ -6,9 +7,15 @@ export const metadata = {
 };
 
 const Register = () => {
+  const bannerLinks = [
+    {text: "SignUp"}
+  ]
   return (
     <>
+    <CommonBanner title="Register" links={bannerLinks}/>
+        <div style={{margin: '20px 0'}}>
         <RegisterPage/>
+        </div>
     </>
   )
 }

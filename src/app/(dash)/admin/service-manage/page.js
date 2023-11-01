@@ -1,10 +1,10 @@
 'use client'
-import HotelBreadCrumb from '../../../../component/ui/HotelBreadCrumb';
 import DynamicTable  from '../../../../component/others/DynamicTable'
 import Link from 'next/link';
 import { Button, Modal, message } from 'antd';
 import {EditOutlined,EyeOutlined,DeleteOutlined} from '@ant-design/icons';
 import { useDeleteServiceMutation, useGetServicesQuery } from '../../../../redux/api/serviceApi';
+import Heading from '../../../../component/ui/reUsable/Heading';
 
 
 
@@ -114,24 +114,7 @@ const ServiceManagePage = () => {
 
   return (
     <div>
-    <div className="container">
-        <HotelBreadCrumb
-          items={[
-            {
-              label: "Admin",
-              link: `/${base}`,
-            },
-            {
-              label: "Service-manage",
-              link: `/${base}/service-manage`,
-            },
-
-            
-          ]}
-          style={{ paddingLeft: "20px " }}
-        />
-      </div>
-        <h1>All Services are here</h1>
+    <Heading title="All Services Are Here"/>
 
         <DynamicTable
         loading={isLoading}

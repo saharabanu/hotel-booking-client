@@ -1,9 +1,10 @@
 'use client'
 import Image from "next/image";
 import logoImg  from '../../assets/images/logo.png';
-import { isLoggedIn, removeUserInfo } from "../../services/auth.service";
+import { getUserInfo, isLoggedIn, removeUserInfo } from "../../services/auth.service";
 import { useRouter } from "next/navigation";
 import { authKey } from "../../constants/storage";
+import { useGetSingleUserQuery } from "../../redux/api/userApi";
 
 
 
@@ -11,8 +12,10 @@ import { authKey } from "../../constants/storage";
 const UiHeader = () => {
  
   const userLoggedIn = isLoggedIn();
-  // console.log(userLoggedIn?.name)
   const router = useRouter();
+  const {id} = getUserInfo();
+  const {data} = useGetSingleUserQuery(id);
+  
 
   const logout = () => {
     removeUserInfo(authKey);
@@ -48,12 +51,13 @@ const UiHeader = () => {
          
 
         
-            
+          {userLoggedIn && <span style={{fontSize:"20px",color:"#fff",paddingRight:"10px" }}>{data?.name}</span>}
           
             { userLoggedIn &&  <button onClick={logout} className="logout-btn">Log out</button> }
             {
               !userLoggedIn &&  <a href="/signin">Login</a>
             }
+            
             
 
           </div>

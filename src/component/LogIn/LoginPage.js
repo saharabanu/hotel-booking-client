@@ -11,6 +11,7 @@ import Swal from 'sweetalert2'
 import { storeUserInfo } from '../../services/auth.service';
 import { useUserLoginMutation } from '../../redux/api/authApi';
 import { message } from 'antd';
+import Heading from '../ui/reUsable/Heading';
 
 
 
@@ -60,9 +61,7 @@ const LoginPage = () => {
         <div className="container">
           <div className="login">
             <div className="common_author_boxed">
-              <div className="common_author_heading">
-                <h2>Login your account</h2>
-              </div>
+              <Heading title="Please LogIn"/>
               <div className="common_author_form">
                 <Form submitHandler={onSubmit} id="main_author_form">
                   <div className="form-group">
@@ -85,7 +84,7 @@ const LoginPage = () => {
                     </div>
                     
                     <p>
-                      Don't have an account? <a href="/signup">Register now</a>
+                      Don't have an account? <a href="/signup" style={{fontWeight:"bold", }}>Register now</a>
                     </p>
                   </div>
                 </Form>

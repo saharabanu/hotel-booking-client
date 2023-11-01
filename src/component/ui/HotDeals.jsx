@@ -25,6 +25,7 @@ const HotDeals = () => {
   const { data, loading } = useGetServicesQuery({...query});
   // console.log(data)
   const services = data?.services;
+  
 
 
 

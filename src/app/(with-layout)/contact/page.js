@@ -1,3 +1,4 @@
+import CommonBanner from "../../../component/ui/CommonBanner"
 import FeedBackForm from "../../../component/ui/FeedBackForm"
 
 export const metadata = {
@@ -5,10 +6,16 @@ export const metadata = {
 }
 
 const ContactPage = () => {
+  const bannerLinks = [
+    {text: "Contact"}
+  ]
   return (
-    <div className="container">
+    <>
+    <CommonBanner title="Contact" links={bannerLinks}/>
+      <div className="container" style={{margin: '20px 0'}}>
         <FeedBackForm/>
     </div>
+    </>
   )
 }
 

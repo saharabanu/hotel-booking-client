@@ -1,35 +1,17 @@
+import CommonBanner from "../../../component/ui/CommonBanner"
 
-import HotelBreadCrumb from '../../../component/ui/HotelBreadCrumb'
 const BookingConfirmationPage = () => {
-    const base = 'Home'
+  const bannerLinks = [
+    {text: "Services", url:"/services"},
+    {text: "details", url:"/details"},
+    {text: "Booking",url: "/booking"},
+    {text: "Booking-Confirm"},
+  ]
   return (
 
 
     <>
-<div className="container">
-        <HotelBreadCrumb
-          items={[
-            {
-              label: `${base}`,
-              link: "/",
-            },
-            {
-              label: "Services",
-              link: "/services",
-            },
-
-            {
-              label: "Booking",
-              link: "/booking",
-            },
-            {
-              label: "Booking-confirmation",
-              link: "/booking-confirmation",
-            },
-          ]}
-          style={{ paddingLeft: "20px " }}
-        />
-      </div>
+<CommonBanner title="Booking-Confirm" links={bannerLinks}/>
 
       <h1>Your order has been confirmed</h1>
 

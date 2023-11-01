@@ -3,6 +3,7 @@ import HotelBreadCrumb from '../../../../component/ui/HotelBreadCrumb';
 import DynamicTable  from '../../../../component/others/DynamicTable'
 
 import {EyeOutlined} from '@ant-design/icons';
+import Heading from '../../../../component/ui/reUsable/Heading';
 
 
 
@@ -121,27 +122,11 @@ const BookingManagePage = () => {
 
   return (
     <div>
-    <div className="container">
-        <HotelBreadCrumb
-          items={[
-            {
-              label: "Admin",
-              link: `/${base}`,
-            },
-            {
-              label: "Booking-manage",
-              link: `/${base}/booking-manage`,
-            },
-
-            
-          ]}
-          style={{ paddingLeft: "20px " }}
-        />
-      </div>
+     <Heading title="All Booking History "/>
        
 
         <div className='booking-profile'>
-      <h3>All Booking History</h3>
+      
       <DynamicTable
         // loading={loading}
          columns={columns}

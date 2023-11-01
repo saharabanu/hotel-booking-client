@@ -1,11 +1,37 @@
 'use client'
 import Image from 'next/image'
+import { getUserInfo } from '../../services/auth.service'
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { setSelectedHotel } from '../../redux/features/selectedHotelSlice';
+import { useGetSingleServiceQuery } from '../../redux/api/serviceApi';
 
 
 
 
 
 const HotelDetails = ({hotel}) => {
+  
+  // const { data } = useGetSingleServiceQuery();
+  // console.log(data)
+  const dispatch = 
+  useDispatch();
+ 
+  const {email} = getUserInfo();
+  const router = useRouter();
+  const handleBookHotel = () => {
+    if (email) {
+      dispatch(setSelectedHotel(hotel));
+       console.log(setSelectedHotel(hotel), 'from hotel page') 
+
+      // Redirect to the booking page
+      router.push('/booking'); 
+      // User is authenticated, allow them to book the hotel
+      // Add your booking logic here
+    } else {
+      router.push('/signin')
+    }
+  }
 
   return (
     <>
@@ -27,9 +53,9 @@ const HotelDetails = ({hotel}) => {
               <h3>$ {hotel.price} <span> starts from</span></h3>
             </div>
             <div>
-             <a href="/booking">
-             <button style={{marginLeft:"20px", marginBottom:"10px", backgroundColor:'#8B3EEA',color:'#fff', border:"0", cursor:'pointer', borderRadius: "5px", padding: '10px 7px'}}>Book Now</button>
-             </a>
+             
+             <button  onClick={handleBookHotel} style={{marginLeft:"20px", marginBottom:"10px", backgroundColor:'#8B3EEA',color:'#fff', border:"0", cursor:'pointer', borderRadius: "5px", padding: '10px 7px'}}>Book Now</button>
+            
               
             </div>
           </div>

@@ -7,6 +7,7 @@ import FormInput from "../form/FormInput";
 import {useUserSignupMutation} from '../../redux/api/authApi';
 import Swal from 'sweetalert2'
 import { storeUserInfo } from "../../services/auth.service";
+import Heading from '../ui/reUsable/Heading'
 
 
 const RegisterPage = () => {
@@ -47,9 +48,7 @@ const RegisterPage = () => {
         <div className="container">
           <div className="login">
             <div className="common_author_boxed">
-              <div className="common_author_heading">
-                <h2>Register your account</h2>
-              </div>
+            <Heading title="Please SignUp"/>
               <div className="common_author_form">
                 <Form submitHandler={onSubmit} id="main_author_form">
                   <div className="form-group">
@@ -67,7 +66,7 @@ const RegisterPage = () => {
                   <div className="form-group">
                     <FormInput name="password" type="password" size="large" label="User Password" />
                   </div>
-
+<br />
                   {/* Terms and Conditions Checkbox */}
                   <div className="form-group">
                     <input type="checkbox" id="termsConditions" name="termsConditions" required />
@@ -78,7 +77,7 @@ const RegisterPage = () => {
                       </a>
                     </label>
                   </div>
-                  <br />
+                  <br /> 
                   {/* Privacy Policy Link */}
                   <div className="form-group">
                     <input type="checkbox" id="termsConditions" name="termsConditions" required />
@@ -117,7 +116,7 @@ const RegisterPage = () => {
                       </li>
                     </ul> */}
                     <p>
-                      Already have an account? <a href="/signin">Login now</a>
+                      Already have an account? <a href="/signin" style={{fontWeight:"bold", }}>Login now</a>
                     </p>
                   </div>
                 </Form>

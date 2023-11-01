@@ -2,7 +2,6 @@
 import { EyeOutlined} from '@ant-design/icons';
 import DynamicTable from '../../../component/others/DynamicTable'
 
-import HotelBreadCrumb from "../../../component/ui/HotelBreadCrumb";
 import { getUserInfo } from '../../../services/auth.service';
 import {useGetSingleUserQuery} from '../../../redux/api/userApi'
 
@@ -125,17 +124,7 @@ const ProfilePage = () => {
   return (
     <>
 
-<HotelBreadCrumb  items={[
-          {
-            label: 'Home',
-            link: '/',
-          },
-          {
-            label: 'Profile',
-            link: '/profile',
-            
-          },
-        ]} style={{paddingLeft:"20px "}}/>
+
 
 
 

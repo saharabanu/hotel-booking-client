@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Button, Modal, message } from 'antd';
 import {EditOutlined,DeleteOutlined} from '@ant-design/icons';
 import { useDeleteUserMutation, useGetUsersQuery } from '../../../../redux/api/userApi';
+import Heading from '../../../../component/ui/reUsable/Heading';
 
 
 
@@ -87,24 +88,8 @@ const UserManagePage = () => {
 
   return (
     <div>
-    <div className="container">
-        <HotelBreadCrumb
-          items={[
-            {
-              label: "Admin",
-              link: `/${base}`,
-            },
-            {
-              label: "User-manage",
-              link: `/${base}/user-manage`,
-            },
-
-            
-          ]}
-          style={{ paddingLeft: "20px " }}
-        />
-      </div>
-        <h1>All Users are here</h1>
+    
+        <Heading title="All Users Are Here"/>
 
         <DynamicTable
         loading={isLoading}
