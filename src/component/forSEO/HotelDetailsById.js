@@ -3,6 +3,7 @@ import Image from "next/image";
 import Reviews from "../ui/Reviews";
 import { useGetSingleServiceQuery } from "../../redux/api/serviceApi";
 import PromotionalTour from "../ui/PromotionalTour";
+import FaceBookShare from '../others/FaceBookShare'
 
 import { useState } from "react";
 
@@ -16,6 +17,9 @@ const smImage1 = "https://andit.co/projects/html/and-tour/demo/assets/img/hotel/
 import CommonBanner from "../ui/CommonBanner";
 
 import { useRouter } from "next/navigation";
+import GmailShare from "../others/GmailShare";
+import LinkedInShare from "../others/LinkedInShare";
+import AllShareButton from "../others/AllShareButton";
 
 const HotelDetailsById = ( {id}) => {
    
@@ -158,6 +162,7 @@ const HotelDetailsById = ( {id}) => {
                 </div>
               </div>
             </div>
+
             <br />
 
             <div>
@@ -167,24 +172,13 @@ const HotelDetailsById = ( {id}) => {
               </h3>
               <h3>Tag: {data?.category}</h3>
             </div>
-            <div>
-              <button className="btn btn_theme btn_md">
-                <a
-                  href="https://www.facebook.com/sahara.banu.796/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Share on Facebook
-                </a>
-              </button>
-              {/* <a href={linkedInShareUrl} target="_blank" rel="noopener noreferrer">Share on LinkedIn</a>
-      <a href={emailShareUrl}>Share via Email</a> */}
-              <button className="btn btn_theme btn_md" style={{ margin: "0px 10px" }}>
-                LinkedIn
-              </button>
-              <button className="btn btn_theme btn_md">Gmail</button>
-            </div>
+
+
+            <AllShareButton/>
           </div>
+
+
+
 
           <div className="details-rights">
             <div className="tour_details_right_sidebar_wrapper">
