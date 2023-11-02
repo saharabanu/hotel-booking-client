@@ -8,7 +8,7 @@ const PromotionalTourCard = ({tour}) => {
        <div key={tour.id} className="theme_common_box_two img_hover ">
               <div className="theme_two_box_img ">
                 <a href="/services">
-                  <Image src={tour.img} alt="img" />
+                  <Image src={tour.img} alt="img"  />
                 </a>
                 <p>
                   <i className="fas fa-map-marker-alt"></i>{tour.title}

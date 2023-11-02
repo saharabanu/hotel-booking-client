@@ -15,8 +15,12 @@ const smImage1 = "https://andit.co/projects/html/and-tour/demo/assets/img/hotel/
 import CommonBanner from "../ui/CommonBanner";
 import { useRouter } from "next/navigation";
 import AllShareButton from "../others/AllShareButton";
+import Link from "next/link";
+import { getUserInfo } from "../../services/auth.service";
 
 const HotelDetailsById = ( {id}) => {
+  const {id:userId} = getUserInfo();
+  
    
   const router = useRouter();
   
@@ -35,16 +39,7 @@ const HotelDetailsById = ( {id}) => {
     
   ];
 
-  const handleProceedToBooking = () => {
-    document.getElementById(data?._id)
-    // Navigate to the booking page and pass the service data as a query parameter
-    // router.push({
-    //   pathname: '/booking',
-    //   query: { serviceData: JSON.stringify(data) }, // Serialize the data to pass it as a query parameter
-    // });
-    router.push('/booking')
-  };
-  // console.log(data?.address)
+  
   return (
     <>
     <CommonBanner title="Service-Details" links={bannerLinks} />
@@ -105,26 +100,27 @@ const HotelDetailsById = ( {id}) => {
                 <div className="slider slider-for">
                   <div>
                     <Image
-                      className="img"
+                      
                       src={data?.images?.[0]}
                       width={600}
                       height={400}
-                      alt="img"
+                      alt="default-img"
+                      className="img"
                     />
                   </div>
                   <br />
                   <div className="details-sm-img">
                     <div>
-                      <Image src={data?.images?.[1]} width={150} height={150} alt="img" />
+                      <Image src={data?.images?.[1]} width={150} height={150} alt="default-img" />
                     </div>
                     <div>
-                      <Image src={data?.images?.[2]} width={150} height={150} alt="img" />
+                      <Image src={data?.images?.[2]} width={150} height={150} alt="default-img" />
                     </div>
                     <div>
-                      <Image src={data?.images?.[3]} width={150} height={150} alt="img" />
+                      <Image src={data?.images?.[3]} width={150} height={150} alt="default-img" />
                     </div>
                     <div>
-                      <Image src={data?.images?.[4]} width={150} height={150} alt="img" />
+                      <Image src={data?.images?.[4]} width={150} height={150} alt="default-img" />
                     </div>
                   </div>
                 </div>
@@ -209,12 +205,14 @@ const HotelDetailsById = ( {id}) => {
                       </li>
                     </ul>
                    {/* <ModalButton/> */}
+                   <Link href={`/booking?id=${data?._id}&userId=${userId}`} >
                    <button
         className="btn btn_theme btn_md"
-        onClick={handleProceedToBooking}
+        
       >
         Proceed To Booking
       </button>
+                   </Link>
                   </div>
                 </div>
               </div>

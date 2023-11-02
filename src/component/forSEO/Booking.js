@@ -8,18 +8,21 @@ import Heading from "../ui/reUsable/Heading";
 import { useRouter } from "next/navigation";
 import { useGetSingleUserQuery } from "../../redux/api/userApi";
 import SubHeading from "../ui/reUsable/SubHeading";
+import { useGetSingleServiceQuery } from "../../redux/api/serviceApi";
 
-const Booking = ({ hotel }) => {
-  // const {data} = useGetSingleUserQuery(id)
+const Booking = ({id, userId}) => {
+  
+
+  const {data} = useGetSingleServiceQuery(id)
   const router = useRouter();
-  console.log(hotel);
+  //  console.log(data);
 
   const onSubmit = (data) => {
     console.log(data);
   };
   const bannerLinks = [
     { text: "Services", url: "/services" },
-    { text: "Hotel-details", url: "/details" },
+    { text: "Hotel-details", url:  `/details/${id}` },
     { text: "Booking" },
   ];
   // console.log(hotel)
@@ -27,7 +30,13 @@ const Booking = ({ hotel }) => {
     <>
       <CommonBanner title="Booking" links={bannerLinks} />
 
+
+
+
       {/* <!-- Tour Booking Submission Areas --> */}
+
+
+
       <section id="tour_booking_submission" className="section_padding">
         <div className="container">
           <div className="booking">
@@ -137,21 +146,21 @@ const Booking = ({ hotel }) => {
               <div className="tour_details_right_sidebar_wrapper">
                 <div className="tour_detail_right_sidebar">
                   <div className="tour_details_right_boxed">
-                    <SubHeading title="Super Deluxe Hotel" />
+                    <SubHeading title={data?.title} />
 
                     <div className="tour_package_details_bar_list">
                       <h3>Package details</h3>
                       <ul>
-                        <li>► Buffet breakfast as per the Itinerary</li>
-                        <li>► Visit eight villages showcasing Polynesian culture</li>
-                        <li>► Complimentary Camel safari, Bonfire,</li>
-                        <li>► All toll tax, parking, fuel, and driver allowances</li>
-                        <li>► Comfortable and hygienic vehicle</li>
+                        <li>► {data?.hotelsFacilities?.[0]}</li>
+                        <li>► {data?.hotelsFacilities?.[1]}</li>
+                        <li>► {data?.hotelsFacilities?.[2]}</li>
+                        <li>► {data?.hotelsFacilities?.[3]}</li>
+                        <li>► {data?.hotelsFacilities?.[4]}</li>
                       </ul>
                     </div>
                     <div className="tour_package_details_bar_price">
                       <h3>
-                        Price $ 30 <sub>/Per person</sub>{" "}
+                        Price $ {data?.price} <sub>/Per person</sub>{" "}
                       </h3>
                     </div>
                   </div>

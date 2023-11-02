@@ -1,5 +1,5 @@
 'use client'
-import Image from "next/image";
+
 import hotelImg1 from "../../assets/images/hotel1.png";
 import hotelImg2 from "../../assets/images/hotel2.png";
 import hotelImg3 from "../../assets/images/hotel3.png";

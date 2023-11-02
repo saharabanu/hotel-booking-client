@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { getUserInfo } from '../../services/auth.service'
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
+import Link from 'next/link';
 
 
 
@@ -16,21 +17,9 @@ const HotelDetails = ({hotel}) => {
   
   
  
-  const {email} = getUserInfo();
+  const {id:userId} = getUserInfo();
   const router = useRouter();
 
-
-  const handleBookHotel = () => {
-    if (email) {
-
-      hotel
-     router.push("/booking")
-      
-      
-    } else {
-      router.push('/signin')
-    }
-  }
 // const hotelData = hotel;
 
   return (
@@ -55,7 +44,9 @@ const HotelDetails = ({hotel}) => {
             <div>
              
         
-             <button  onClick={handleBookHotel} style={{marginLeft:"20px", marginBottom:"10px", backgroundColor:'#8B3EEA',color:'#fff', border:"0", cursor:'pointer', borderRadius: "5px", padding: '10px 7px'}}>Book Now</button>
+           <Link href={`/booking?id=${hotel?._id}&userId=${userId}`}>
+           <button   style={{marginLeft:"20px", marginBottom:"10px", backgroundColor:'#8B3EEA',color:'#fff', border:"0", cursor:'pointer', borderRadius: "5px", padding: '10px 7px'}}>Book Now</button>
+           </Link>
 
            
             
