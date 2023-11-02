@@ -82,7 +82,7 @@ const Searchbar = () => {
                     <div className=" form-desc-div1">
                       <div className="flight_Search_boxed">
                         <p>From</p>
-                        <input type="text" value="New York" readOnly />
+                        <input type="text" value="New York"  />
 
                         <span>JFK - John F. Kennedy International...</span>
                         <div className="plan_icon_posation">
@@ -109,7 +109,7 @@ const Searchbar = () => {
                         <div className="flight_Search_boxed date_flex_area">
                           <div className="Journey_date">
                             <p>Journey date</p>
-                            <input type="date" value="2022-05-05" readOnly/>
+                            <input type="date" value="2022-05-05" />
                             <br />
                             <span>Thursday</span>
                           </div>
@@ -141,7 +141,7 @@ const Searchbar = () => {
                     <div className=" form-desc-div1">
                       <div className="flight_Search_boxed">
                         <p>From</p>
-                        <input type="text" value="New York" readOnly/>
+                        <input type="text" value="New York" />
 
                         <span>JFK - John F. Kennedy International...</span>
                         <div className="plan_icon_posation">
@@ -168,7 +168,7 @@ const Searchbar = () => {
                         <div className="flight_Search_boxed date_flex_area">
                           <div className="Journey_date">
                             <p>Journey date</p>
-                            <input type="date" value="2022-05-05" readOnly/>
+                            <input type="date" value="2022-05-05" />
                             <br />
                             <span>Thursday</span>
                           </div>
@@ -262,7 +262,7 @@ const Searchbar = () => {
                     <div className=" form-desc-div1">
                       <div className="flight_Search_boxed">
                         <p>From</p>
-                        <input type="text" value="New York" readOnly/>
+                        <input type="text" value="New York" />
 
                         <span>JFK - John F. Kennedy International...</span>
                         <div className="plan_icon_posation">
@@ -274,7 +274,7 @@ const Searchbar = () => {
                     <div className=" form-desc-div1">
                       <div className="flight_Search_boxed">
                         <p>To</p>
-                        <input type="text" value="London " readOnly/>
+                        <input type="text" value="London " />
                         <span>LCY, London city airport </span>
                         <div className="plan_icon_posation">
                           <i className="fas fa-plane-arrival"></i>
@@ -289,7 +289,7 @@ const Searchbar = () => {
                         <div className="flight_Search_boxed date_flex_area">
                           <div className="Journey_date">
                             <p>Journey date</p>
-                            <input type="date" value="2022-05-05" readOnly/>
+                            <input type="date" value="2022-05-05" />
                             <br />
                             <span>Thursday</span>
                           </div>
@@ -323,7 +323,7 @@ const Searchbar = () => {
                     <div className=" form-desc-div1">
                       <div className="flight_Search_boxed">
                         <p>From</p>
-                        <input type="text" value="New York" readOnly/>
+                        <input type="text" value="New York" />
 
                         <span>JFK - John F. Kennedy International...</span>
                         <div className="plan_icon_posation">
@@ -335,7 +335,7 @@ const Searchbar = () => {
                     <div className=" form-desc-div1">
                       <div className="flight_Search_boxed">
                         <p>To</p>
-                        <input type="text" value="London " readOnly/>
+                        <input type="text" value="London " />
                         <span>LCY, London city airport </span>
                         <div className="plan_icon_posation">
                           <i className="fas fa-plane-arrival"></i>
@@ -350,7 +350,7 @@ const Searchbar = () => {
                         <div className="flight_Search_boxed date_flex_area">
                           <div className="Journey_date">
                             <p>Journey date</p>
-                            <input type="date" value="2022-05-05" readOnly/>
+                            <input type="date" value="2022-05-05" />
                             <br />
                             <span>Thursday</span>
                           </div>
@@ -382,7 +382,7 @@ const Searchbar = () => {
                     <div className=" form-desc-div1">
                       <div className="flight_Search_boxed">
                         <p>From</p>
-                        <input type="text" value="New York"readOnly />
+                        <input type="text" value="New York" />
 
                         <span>JFK - John F. Kennedy International...</span>
                         <div className="plan_icon_posation">
@@ -394,7 +394,7 @@ const Searchbar = () => {
                     <div className=" form-desc-div1">
                       <div className="flight_Search_boxed">
                         <p>To</p>
-                        <input type="text" value="London " readOnly/>
+                        <input type="text" value="London " />
                         <span>LCY, London city airport </span>
                         <div className="plan_icon_posation">
                           <i className="fas fa-plane-arrival"></i>
@@ -409,7 +409,7 @@ const Searchbar = () => {
                         <div className="flight_Search_boxed date_flex_area">
                           <div className="Journey_date">
                             <p>Journey date</p>
-                            <input type="date" value="2022-05-05" readOnly/>
+                            <input type="date" value="2022-05-05" />
                             <br />
                             <span>Thursday</span>
                           </div>
@@ -443,7 +443,7 @@ const Searchbar = () => {
                     <div className=" form-desc-div1">
                       <div className="flight_Search_boxed">
                         <p>From</p>
-                        <input type="text" value="New York" readOnly/>
+                        <input type="text" value="New York" />
 
                         <span>JFK - John F. Kennedy International...</span>
                         <div className="plan_icon_posation">
@@ -455,7 +455,7 @@ const Searchbar = () => {
                     <div className=" form-desc-div1">
                       <div className="flight_Search_boxed">
                         <p>To</p>
-                        <input type="text" value="London " readOnly />
+                        <input type="text" value="London "  />
                         <span>LCY, London city airport </span>
                         <div className="plan_icon_posation">
                           <i className="fas fa-plane-arrival"></i>
@@ -470,7 +470,7 @@ const Searchbar = () => {
                         <div className="flight_Search_boxed date_flex_area">
                           <div className="Journey_date">
                             <p>Journey date</p>
-                            <input type="date" value="2022-05-05" readOnly/>
+                            <input type="date" value="2022-05-05" />
                             <br />
                             <span>Thursday</span>
                           </div>

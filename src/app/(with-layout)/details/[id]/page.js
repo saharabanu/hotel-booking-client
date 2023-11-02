@@ -1,20 +1,16 @@
-import HotelDetailsById from '../../../../component/forSEO/HotelDetailsById'
-import { useGetSingleServiceQuery } from '../../../../redux/api/serviceApi';
-
+import HotelDetailsById from "../../../../component/forSEO/HotelDetailsById";
 
 export const metadata = {
   title: "Hotel Details",
-  
 };
-const DetailsPage = ({params}) => {
+const DetailsPage = ({ params }) => {
   const id = params?.id;
 
-  
   return (
     <>
-<HotelDetailsById id={id}/>
+      <HotelDetailsById id={id} />
     </>
-  )
-}
+  );
+};
 
-export default DetailsPage
+export default DetailsPage;

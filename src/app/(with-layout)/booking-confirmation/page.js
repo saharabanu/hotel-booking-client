@@ -1,22 +1,17 @@
-import CommonBanner from "../../../component/ui/CommonBanner"
+import BookingConfirm from '../../../component/forSEO/BookingConfirm'
 
+
+export const metadata = {
+  title: "Booking Confirmation",
+
+};
 const BookingConfirmationPage = () => {
-  const bannerLinks = [
-    {text: "Services", url:"/services"},
-    {text: "details", url:"/details"},
-    {text: "Booking",url: "/booking"},
-    {text: "Booking-Confirm"},
-  ]
+  
   return (
+   <>
+    <BookingConfirm/>
+   </>
+  );
+};
 
-
-    <>
-<CommonBanner title="Booking-Confirm" links={bannerLinks}/>
-
-      <h1>Your order has been confirmed</h1>
-
-    </>
-  )
-}
-
-export default BookingConfirmationPage
+export default BookingConfirmationPage;

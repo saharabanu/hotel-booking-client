@@ -120,7 +120,7 @@ const HotDeals = () => {
 
           <div className="promotional_tour-part">
             {filteredServices?.map((hotel) => (
-              <HotelDetails key={hotel?.title} hotel={hotel} />
+              <HotelDetails key={hotel?._id} hotel={hotel} />
             ))}
           </div>
         </div>

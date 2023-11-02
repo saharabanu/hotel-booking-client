@@ -1,3 +1,4 @@
+'use client'
 import FaceBookShare from "./FaceBookShare"
 import GmailShare from "./GmailShare"
 import LinkedInShare from "./LinkedInShare"

@@ -56,8 +56,10 @@ const Payment = () => {
                             name="flexRadioDefault"
                             id="flexRadioDefault4"
                             value="white"
+                            checked={selectedPaymentMethod === 'cashondelivery'}
+              onChange={() => setSelectedPaymentMethod('cashondelivery')}
                           />
-                          <label className="form-check-label" for="flexRadioDefault4">
+                          <label className="form-check-label" htmlFor="flexRadioDefault4">
                             Cash on delivery
                           </label>
                         </div>

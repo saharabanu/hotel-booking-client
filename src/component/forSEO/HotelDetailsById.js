@@ -3,8 +3,6 @@ import Image from "next/image";
 import Reviews from "../ui/Reviews";
 import { useGetSingleServiceQuery } from "../../redux/api/serviceApi";
 import PromotionalTour from "../ui/PromotionalTour";
-import FaceBookShare from '../others/FaceBookShare'
-
 import { useState } from "react";
 
 const iconImage = "https://andit.co/projects/html/and-tour/demo/assets/img/icon/ac.png";
@@ -15,10 +13,7 @@ const bigImage = "https://andit.co/projects/html/and-tour/demo/assets/img/hotel/
 const smImage1 = "https://andit.co/projects/html/and-tour/demo/assets/img/hotel/small-1.png";
 
 import CommonBanner from "../ui/CommonBanner";
-
 import { useRouter } from "next/navigation";
-import GmailShare from "../others/GmailShare";
-import LinkedInShare from "../others/LinkedInShare";
 import AllShareButton from "../others/AllShareButton";
 
 const HotelDetailsById = ( {id}) => {
@@ -41,11 +36,13 @@ const HotelDetailsById = ( {id}) => {
   ];
 
   const handleProceedToBooking = () => {
+    document.getElementById(data?._id)
     // Navigate to the booking page and pass the service data as a query parameter
     // router.push({
     //   pathname: '/booking',
     //   query: { serviceData: JSON.stringify(data) }, // Serialize the data to pass it as a query parameter
     // });
+    router.push('/booking')
   };
   // console.log(data?.address)
   return (

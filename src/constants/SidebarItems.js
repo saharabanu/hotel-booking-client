@@ -1,26 +1,30 @@
-import {TableOutlined,ProfileOutlined,ScheduleOutlined,ThunderboltOutlined,CreditCardOutlined,FileTextOutlined,AppstoreOutlined} from "@ant-design/icons";
+import {TableOutlined,ProfileOutlined} from "@ant-design/icons";
 import Link from "next/link";
+import { CgProfile} from "react-icons/cg";
+import { IoIosNotifications} from "react-icons/io";
+import { ImProfile} from "react-icons/im";
+import { MdPayment} from "react-icons/md";
 
 
 export const SidebarItems = (role) => {
   const defaultSidebarItems = [
     {
-     label: "Profile",
+     label: <Link href='/profile'> Profile</Link>,
       key: "profile",
-      icon: <ProfileOutlined />,
-      children: [
-        {
-            label: <Link href='/profile'>View Profile</Link>,
-          key: '/profile',
-        },
+      icon: <CgProfile />
+      // children: [
+      //   {
+      //       label: <Link href='/profile'>View Profile</Link>,
+      //     key: '/profile',
+      //   },
         
         
-      ],
+      // ],
     },
     
      {
       label: <Link href={`/${role}/notification`}>Notification</Link>,
-      icon: <TableOutlined/>,
+      icon: <IoIosNotifications/>,
        key: `/${role}/notification`,
      },
   ];
@@ -29,12 +33,12 @@ export const SidebarItems = (role) => {
     
     {
      label: <Link href={`/${role}/my-booking`}>My Booking</Link>,
-     icon: <TableOutlined/>,
+     icon: <ImProfile/>,
       key: `/${role}/my-booking`,
     },
     {
       label: <Link href='/user/payment'>Payment</Link>,
-      icon: <TableOutlined/>,
+      icon: <MdPayment/>,
        key: '/user/payment',
      },
     
@@ -63,76 +67,6 @@ export const SidebarItems = (role) => {
     
 
 
-    // {
-    //   label: "Manage academic",
-    //   key: "manage-academic",
-    //   icon: <TableOutlined />,
-    //   children: [
-    //     {
-    //       label: <Link href={`/${role}/user-manage`}>User Management</Link>,
-    //       key: `/${role}/user-manage`,
-    //     },
-    //     {
-    //       label: <Link href={`/${role}/academic/department`}>Departments</Link>,
-    //       key: `/${role}/academic/department`,
-    //     },
-    //     {
-    //       label: <Link href={`/${role}/academic/semester`}>Semesters</Link>,
-    //       key: `/${role}/academic/semester`,
-    //     },
-    //   ],
-    // },
-    // {
-    //   label: "Management",
-    //   key: "management",
-    //   icon: <AppstoreOutlined />,
-    //   children: [
-    //     {
-    //       label: <Link href={`/${role}/department`}>Department</Link>,
-    //       key: `/${role}/department`,
-    //     },
-    //     {
-    //       label: <Link href={`/${role}/building`}>Building</Link>,
-    //       key: `/${role}/building`,
-    //     },
-    //     {
-    //       label: <Link href={`/${role}/room`}>Rooms</Link>,
-    //       key: `/${role}/room`,
-    //     },
-    //     {
-    //       label: <Link href={`/${role}/course`}>Course</Link>,
-    //       key: `/${role}/course`,
-    //     },
-    //     {
-    //       label: (
-    //         <Link href={`/${role}/semester-registration`}>
-    //           Semester registration
-    //         </Link>
-    //       ),
-    //       key: `/${role}/semester-registration`,
-    //     },
-    //     {
-    //       label: <Link href={`/${role}/offered-course`}>Offered courses</Link>,
-    //       key: `/${role}/offered-course`,
-    //     },
-    //     {
-    //       label: (
-    //         <Link href={`/${role}/offered-course-section`}>
-    //           Course sections
-    //         </Link>
-    //       ),
-    //       key: `/${role}/offered-course-section`,
-    //     },
-    //     {
-    //       label: (
-    //         <Link href={`/${role}/offered-course-schedule`}>
-    //           Course schedules
-    //         </Link>
-    //       ),
-    //       key: `/${role}/offered-course-schedule`,
-    //     },
-    //   ],
-    // },
   ];
 
   
