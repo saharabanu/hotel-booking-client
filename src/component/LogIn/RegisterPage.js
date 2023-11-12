@@ -19,8 +19,9 @@ const RegisterPage = () => {
 
   const onSubmit = async (data) => {
     try {
-     
+     console.log(data)
       const res = await userSignup({...data}).unwrap();
+      console.log(res)
       
       if(res?.accessToken){
         Swal.fire({

@@ -3,6 +3,7 @@ import {baseApi} from './baseApi'
 const SERVICE = "/services";
 
 export const serviceApi = baseApi.injectEndpoints({
+
   endpoints: (build) => ({
     getSingleService: build.query({
       query: (id) => ({
@@ -48,6 +49,7 @@ export const serviceApi = baseApi.injectEndpoints({
 
 
   }),
+  
 });
 
 export const { useGetServicesQuery, useGetSingleServiceQuery , useUpdateServiceMutation, useDeleteServiceMutation} = serviceApi;

@@ -43,10 +43,20 @@ const HotelDetails = ({hotel}) => {
             </div>
             <div>
              
-        
-           <Link href={`/booking?id=${hotel?._id}&userId=${userId}`}>
+             {/* if(userId){
+              <Link href={`/booking?id=${hotel?._id}&userId=${userId}`}>
            <button   style={{marginLeft:"20px", marginBottom:"10px", backgroundColor:'#8B3EEA',color:'#fff', border:"0", cursor:'pointer', borderRadius: "5px", padding: '10px 7px'}}>Book Now</button>
            </Link>
+             }
+             else{
+            router.push('/signin')
+             } */}
+        
+           {userId ? <Link href={`/booking?id=${hotel?._id}&userId=${userId}`}>
+           <button   style={{marginLeft:"20px", marginBottom:"10px", backgroundColor:'#8B3EEA',color:'#fff', border:"0", cursor:'pointer', borderRadius: "5px", padding: '10px 7px'}}>Book Now</button>
+           </Link> : <Link href='/signin'>
+           <button   style={{marginLeft:"20px", marginBottom:"10px", backgroundColor:'#8B3EEA',color:'#fff', border:"0", cursor:'pointer', borderRadius: "5px", padding: '10px 7px'}}>Book Now</button>
+           </Link>}
 
            
             

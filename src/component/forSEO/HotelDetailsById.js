@@ -18,35 +18,24 @@ import AllShareButton from "../others/AllShareButton";
 import Link from "next/link";
 import { getUserInfo } from "../../services/auth.service";
 
-const HotelDetailsById = ( {id}) => {
-  const {id:userId} = getUserInfo();
-  
-   
+const HotelDetailsById = ({ id }) => {
+  const { id: userId } = getUserInfo();
+
   const router = useRouter();
-  
+
   const { data } = useGetSingleServiceQuery(id);
- 
- 
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
     setIsModalOpen(true);
   };
-  const bannerLinks = [
-    { text: 'Services', url: '/services' },
-    { text: 'Details' },
-    
-  ];
+  const bannerLinks = [{ text: "Services", url: "/services" }, { text: "Details" }];
 
-  
   return (
     <>
-    <CommonBanner title="Service-Details" links={bannerLinks} />
+      <CommonBanner title="Service-Details" links={bannerLinks} />
       <div className="container">
-     
-
-
         <div className="details-main-section">
           <div className="details-lefts">
             <div className="tour_details_leftside_wrapper">
@@ -100,7 +89,6 @@ const HotelDetailsById = ( {id}) => {
                 <div className="slider slider-for">
                   <div>
                     <Image
-                      
                       src={data?.images?.[0]}
                       width={600}
                       height={400}
@@ -166,12 +154,8 @@ const HotelDetailsById = ( {id}) => {
               <h3>Tag: {data?.category}</h3>
             </div>
 
-
-            <AllShareButton/>
+            <AllShareButton />
           </div>
-
-
-
 
           <div className="details-rights">
             <div className="tour_details_right_sidebar_wrapper">
@@ -188,14 +172,13 @@ const HotelDetailsById = ( {id}) => {
                     <h5>Hotel facilities</h5>
                     <ul>
                       <li>
-                        <i className="fas fa-circle"></i>●  {data?.hotelsFacilities?.[0]}
+                        <i className="fas fa-circle"></i>● {data?.hotelsFacilities?.[0]}
                       </li>
                       <li>
                         <i className="fas fa-circle"></i>● {data?.hotelsFacilities?.[1]}
                       </li>
                       <li>
-                        <i className="fas fa-circle"></i>● {data?.hotelsFacilities?.[2]}
-                        ,
+                        <i className="fas fa-circle"></i>● {data?.hotelsFacilities?.[2]},
                       </li>
                       <li>
                         <i className="fas fa-circle"></i>● {data?.hotelsFacilities?.[3]}
@@ -204,15 +187,12 @@ const HotelDetailsById = ( {id}) => {
                         <i className="fas fa-circle"></i>● {data?.hotelsFacilities?.[4]}
                       </li>
                     </ul>
-                   {/* <ModalButton/> */}
-                   <Link href={`/booking?id=${data?._id}&userId=${userId}`} >
-                   <button
-        className="btn btn_theme btn_md"
-        
-      >
-        Proceed To Booking
-      </button>
-                   </Link>
+                    {/* <ModalButton/> */}
+                   {(data && userId)? <Link href={`/booking?id=${data?._id}&userId=${userId}`}>
+                      <button className="btn btn_theme btn_md">Proceed To Booking</button>
+                    </Link>: <><span>Please login First</span> <Link href='/signin'>
+                      <button className="btn btn_theme btn_md">Proceed To Booking</button>
+                    </Link></> }
                   </div>
                 </div>
               </div>
@@ -255,13 +235,9 @@ const HotelDetailsById = ( {id}) => {
       <br />
 
       <div>
-        
-
-        <PromotionalTour/>
+        <PromotionalTour />
       </div>
       <div className="" style={{ marginBottom: "30px" }}>
-
-
         <Reviews />
       </div>
     </>
@@ -269,4 +245,3 @@ const HotelDetailsById = ( {id}) => {
 };
 
 export default HotelDetailsById;
-  

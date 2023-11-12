@@ -4,13 +4,16 @@ import Form from "../form/Form";
 import FormInput from "../form/FormInput";
 import Payment from "../others/Payment";
 import CommonBanner from "../ui/CommonBanner";
-import Heading from "../ui/reUsable/Heading";
+
 import { useRouter } from "next/navigation";
 import { useGetSingleUserQuery } from "../../redux/api/userApi";
 import SubHeading from "../ui/reUsable/SubHeading";
 import { useGetSingleServiceQuery } from "../../redux/api/serviceApi";
+import { getUserInfo } from "../../services/auth.service";
 
 const Booking = ({id, userId}) => {
+  
+  const {data:userData} = useGetSingleUserQuery(userId)
   
 
   const {data} = useGetSingleServiceQuery(id)
@@ -20,6 +23,13 @@ const Booking = ({id, userId}) => {
   const onSubmit = (data) => {
     console.log(data);
   };
+
+  const defaultValues = {
+    name: userData?.name,
+    email:userData?.email,
+    address:userData?.address,
+    phonenumber:userData?.phonenumber
+  }
   const bannerLinks = [
     { text: "Services", url: "/services" },
     { text: "Hotel-details", url:  `/details/${id}` },
@@ -31,7 +41,8 @@ const Booking = ({id, userId}) => {
       <CommonBanner title="Booking" links={bannerLinks} />
 
 
-
+<h2>{userData?.name}</h2>
+<h2>{userData?.email}</h2>
 
       {/* <!-- Tour Booking Submission Areas --> */}
 
@@ -45,52 +56,57 @@ const Booking = ({id, userId}) => {
                 <div className="booking_tour_form">
                   <SubHeading title="Booking submission" />
                   <div className="tour_booking_form_box">
-                    <Form submitHandler={onSubmit} id="tour_bookking_form_item">
+                    <Form submitHandler={onSubmit}  id="tour_bookking_form_item">
                       <div className="form-group">
-                        <input
+                      <FormInput name="name" type="name" size="large"  />
+                        {/* <input
                           name="firstName"
                           size="small"
                           type="text"
                           className="form-control bg_input"
                           placeholder="First name*"
                           required
-                        />
+                        /> */}
                       </div>
 
                       <div className="form-group">
-                        <input
+                      <FormInput name="name" type="name" size="large"  />
+                        {/* <input
                           name="lastName"
                           type="text"
                           className="form-control bg_input"
                           placeholder="Last name*"
                           required
-                        />
+                        /> */}
                       </div>
 
                       <div className="form-group">
-                        <input
+                      <FormInput name="email" type="email" size="large"  />
+                        {/* <input
                           type="text"
                           className="form-control bg_input"
                           placeholder="Email address (Optional)"
-                        />
+                        /> */}
                       </div>
 
                       <div className="form-group">
-                        <input
+                      <FormInput name="phonenumber" type="number" size="large"  />
+                        {/* <input
                           type="text"
                           className="form-control bg_input"
                           placeholder="Mobile number*"
                           required
-                        />
+                        /> */}
                       </div>
 
                       <div className="form-group">
-                        <input
+                      <FormInput name="address" type="text" size="large"  className="form-control bg_input" />
+                        {/* <input
                           type="text"
                           className="form-control bg_input"
                           placeholder=" Address"
                           required
-                        />
+                        /> */}
                       </div>
 
                       {/* <div className="form-group">
