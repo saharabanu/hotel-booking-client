@@ -1,7 +1,4 @@
 "use client";
-import { useSelector } from "react-redux";
-import Form from "../form/Form";
-import FormInput from "../form/FormInput";
 import Payment from "../others/Payment";
 import CommonBanner from "../ui/CommonBanner";
 
@@ -9,30 +6,69 @@ import { useRouter } from "next/navigation";
 import { useGetSingleUserQuery } from "../../redux/api/userApi";
 import SubHeading from "../ui/reUsable/SubHeading";
 import { useGetSingleServiceQuery } from "../../redux/api/serviceApi";
-import { getUserInfo } from "../../services/auth.service";
 
-const Booking = ({id, userId}) => {
-  
-  const {data:userData} = useGetSingleUserQuery(userId)
-  
+import { useAddBookingMutation } from "../../redux/api/bookingApi";
+import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
 
-  const {data} = useGetSingleServiceQuery(id)
+const Booking = ({ id, userId }) => {
+  const { data: userData } = useGetSingleUserQuery(userId);
+
+  const { register, handleSubmit, reset } = useForm();
+  const { data } = useGetSingleServiceQuery(id);
+
+  const [addBooking] = useAddBookingMutation();
+
   const router = useRouter();
-  //  console.log(data);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (bookingData) => {
+    try {
+      const formData = {
+        status: false, // true = accepted, false = rejected
+        userId: userData?.id,
+        serviceId: data?.id,
+        address: bookingData?.address,
+        name: userData?.name,
+        email: userData?.email,
+        phonenumber: userData?.phonenumber,
+        payment: bookingData?.payment,
+        startDate: bookingData?.startDate,
+        endDate: bookingData?.endDate,
+      };
+      // console.log(formData);
+      const res = await addBooking({ ...formData }).unwrap();
+      // console.log(res, "from res");
+      if (res) {
+        Swal.fire({
+          title: "Booking Successful",
+          text: "Please check your booking list",
+          icon: "success",
+          showCancelButton: true,
+          confirmButtonText: "Go to Booking confirmation page",
+          cancelButtonText: "Stay here",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            router.push('booking-confirmation')
+            
+            // // router.push( "/booking-confirmation?bookingData=" + encodeURIComponent(JSON.stringify(formData)));
+            // // router.push(`/booking-confirmation?formData=${formData}`);
+
+            // const encodedFormData = encodeURIComponent(JSON.stringify(formData));
+            // router.push(`/booking-confirmation?formData=${encodedFormData}`);
+            reset();
+          }
+        });
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
-  const defaultValues = {
-    name: userData?.name,
-    email:userData?.email,
-    address:userData?.address,
-    phonenumber:userData?.phonenumber
-  }
+  // {`/booking?id=${hotel?._id}&userId=${userId}`}
+
   const bannerLinks = [
     { text: "Services", url: "/services" },
-    { text: "Hotel-details", url:  `/details/${id}` },
+    { text: "Hotel-details", url: `/details/${id}` },
     { text: "Booking" },
   ];
   // console.log(hotel)
@@ -40,13 +76,7 @@ const Booking = ({id, userId}) => {
     <>
       <CommonBanner title="Booking" links={bannerLinks} />
 
-
-<h2>{userData?.name}</h2>
-<h2>{userData?.email}</h2>
-
       {/* <!-- Tour Booking Submission Areas --> */}
-
-
 
       <section id="tour_booking_submission" className="section_padding">
         <div className="container">
@@ -56,74 +86,82 @@ const Booking = ({id, userId}) => {
                 <div className="booking_tour_form">
                   <SubHeading title="Booking submission" />
                   <div className="tour_booking_form_box">
-                    <Form submitHandler={onSubmit}  id="tour_bookking_form_item">
+                    <form onSubmit={handleSubmit(onSubmit)} id="tour_bookking_form_item">
                       <div className="form-group">
-                      <FormInput name="name" type="name" size="large"  />
-                        {/* <input
-                          name="firstName"
-                          size="small"
+                        <input
+                          {...register("name")}
+                          name="name"
+                          value={userData?.name}
                           type="text"
                           className="form-control bg_input"
                           placeholder="First name*"
                           required
-                        /> */}
+                        />
                       </div>
 
                       <div className="form-group">
-                      <FormInput name="name" type="name" size="large"  />
-                        {/* <input
-                          name="lastName"
-                          type="text"
+                        <input
+                          {...register("email")}
+                          name="email"
+                          value={userData?.email}
+                          type="email"
                           className="form-control bg_input"
-                          placeholder="Last name*"
-                          required
-                        /> */}
+                          placeholder="Email address "
+                        />
                       </div>
 
                       <div className="form-group">
-                      <FormInput name="email" type="email" size="large"  />
-                        {/* <input
-                          type="text"
-                          className="form-control bg_input"
-                          placeholder="Email address (Optional)"
-                        /> */}
-                      </div>
-
-                      <div className="form-group">
-                      <FormInput name="phonenumber" type="number" size="large"  />
-                        {/* <input
+                        <input
+                          {...register("phonenumber")}
+                          name="phonenumber"
+                          value={userData?.phonenumber}
                           type="text"
                           className="form-control bg_input"
                           placeholder="Mobile number*"
                           required
-                        /> */}
+                        />
                       </div>
 
                       <div className="form-group">
-                      <FormInput name="address" type="text" size="large"  className="form-control bg_input" />
-                        {/* <input
+                        <input
+                          {...register("address")}
+                          name="address"
                           type="text"
                           className="form-control bg_input"
-                          placeholder=" Address"
+                          placeholder="Address*"
                           required
-                        /> */}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <input
+                          {...register("startDate")}
+                          name="startDate"
+                          type="date"
+                          className="form-control bg_input"
+                          placeholder="Type Date"
+                        />
+                      </div>
+                      <div className="form-group">
+                        <input
+                          {...register("endDate")}
+                          name="endDate"
+                          type="date"
+                          className="form-control bg_input"
+                          placeholder="Type End Date"
+                        />
+                      </div>
+                      <div className="form-group">
+                        <input
+                          {...register("payment")}
+                          name="payment"
+                          type="text"
+                          className="form-control bg_input"
+                          placeholder="Payment"
+                        />
                       </div>
 
-                      {/* <div className="form-group">
-                        <select
-                          className="form-control form-select bg_input"
-                          style={{ color: "black" }}
-                        >
-                          {" "}
-                          Select Your City
-                          <option value="1">Khulna</option>
-                          <option value="1">New York</option>
-                          <option value="1">Barisal</option>
-                          <option value="1">Nator</option>
-                          <option value="1">Joybangla</option>
-                        </select>
-                      </div> */}
-                    </Form>
+                      <input type="submit" value="Submit"  className="btn btn_theme btn_md"/>
+                    </form>
                   </div>
                 </div>
                 {/* payment system */}

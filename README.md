@@ -2,7 +2,6 @@
 
 ### Live Link :  https://hotel-booking-rosy.vercel.app/
 
-### Project Demo Video: https://youtu.be/a3tFNQKQoVA
 
 
 

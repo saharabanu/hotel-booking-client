@@ -4,7 +4,35 @@ import SubHeading from "../ui/reUsable/SubHeading";
 import tikImg from "../../assets/images/booking-thick-mark.png";
 import Image from "next/image";
 
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+
+
+
+
 const BookingConfirm = () => {
+
+  // //  const router = useSearchParams();
+  // //  const data = router.get("formData");
+  // //  console.log(data)
+  // const router = useRouter();
+  // useEffect(() => {
+  //   // Check if router.query is defined
+  //   if (router?.query) {
+  //     const { formData } = router.query;
+
+  //     if (formData) {
+  //       // Parse the JSON string into an object
+  //       const parsedData = JSON.parse(decodeURIComponent(formData));
+  //       // Handle the parsed data as needed
+  //       console.log(parsedData, 'gomm');
+  //     }
+  //   }
+  // }, [router.query]);
+ 
+  
+
+ 
   const bannerLinks = [
     { text: "Services", url: "/services" },
     { text: "details", url: "/details" },
@@ -35,6 +63,7 @@ const BookingConfirm = () => {
                 <SubHeading title="Your Information" />
                 <div className="tour_booking_form_box">
                 <div className="booking-card">
+                {/* {formData} hythtyjj */}
                       <h5>First name:</h5>
                       <h5>Jhon</h5>
                     </div>
