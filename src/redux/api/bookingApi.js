@@ -33,46 +33,46 @@ export const bookingApi = baseApi.injectEndpoints({
       },
       transformResponse: (response, meta) => {
         return {
-          services: response,
+          bookings: response,
           meta,
         };
       },
       providesTags: ["booking"],
     }),
 
-    // deleteBooking: build.mutation({
-    //   query: (id) => ({
-    //     url: `${URL}/${id}`,
-    //     method: "DELETE",
-    //   }),
-    //   invalidatesTags: ["booking"],
-    // }),
+    deleteBooking: build.mutation({
+      query: (id) => ({
+        url: `${URL}/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["booking"],
+    }),
 
-    // bookingStatusChange: build.mutation({
-    //   query: (id) => ({
-    //     url: `${URL}/status/${id}`,
-    //     method: "PATCH",
-    //   }),
-    //   invalidatesTags: ["booking"],
-    // }),
+    bookingStatusChange: build.mutation({
+      query: (id) => ({
+        url: `${URL}/status/${id}`,
+        method: "PATCH",
+      }),
+      invalidatesTags: ["booking"],
+    }),
 
-    // getAllBookings: build.query({
-    //   query: (arg: Record<string, any>) => {
-    //     return {
-    //       url: `${URL}`,
-    //       method: "GET",
-    //       params: arg,
-    //     };
-    //   },
-    //   transformResponse: (response: IBooking[], meta: IMeta) => {
-    //     return {
-    //       bookings: response,
-    //       meta,
-    //     };
-    //   },
-    //   providesTags: ["booking"],
-    // }),
+    getAllBookings: build.query({
+      query: (arg) => {
+        return {
+          url: URL,
+          method: "GET",
+          params: arg,
+        };
+      },
+      transformResponse: (response, meta) => {
+        return {
+          bookings: response,
+          meta,
+        };
+      },
+      providesTags: ["booking"],
+    }),
   }),
 });
 
-export const { useAddBookingMutation, useGetSingleBookingQuery } = bookingApi;
+export const { useAddBookingMutation, useGetSingleBookingQuery, useGetBookingByUserIdQuery,useDeleteBookingMutation,  useBookingStatusChangeMutation,useGetAllBookingsQuery  } = bookingApi;

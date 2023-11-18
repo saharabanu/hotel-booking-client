@@ -1200,10 +1200,13 @@ margin: 18px 0;
 .form-control{
     
     padding: 16px 40px;
-    color:#fff;
+    color:#000;
     font-size: 20px;
     outline: none;
     border: none;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: #e3e3e8;
 }
 .form-control:hover{
     
@@ -1336,13 +1339,13 @@ details page style start
     border-radius: 10px;
     padding: 20px 
 }
-.tour_booking_form_box input, select{
+/* .tour_booking_form_box input, select{
     
     
     border-radius: 5px;
     margin: 5px;
     background-color: #e3e3e8;
-}
+} */
 
 /*booking  confirmation */
 .booking_success_area{

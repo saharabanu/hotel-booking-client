@@ -50,11 +50,7 @@ const Booking = ({ id, userId }) => {
           if (result.isConfirmed) {
             router.push('booking-confirmation')
             
-            // // router.push( "/booking-confirmation?bookingData=" + encodeURIComponent(JSON.stringify(formData)));
-            // // router.push(`/booking-confirmation?formData=${formData}`);
-
-            // const encodedFormData = encodeURIComponent(JSON.stringify(formData));
-            // router.push(`/booking-confirmation?formData=${encodedFormData}`);
+           
             reset();
           }
         });
@@ -150,28 +146,20 @@ const Booking = ({ id, userId }) => {
                           placeholder="Type End Date"
                         />
                       </div>
-                      <div className="form-group">
-                        <input
-                          {...register("payment")}
-                          name="payment"
-                          type="text"
-                          className="form-control bg_input"
-                          placeholder="Payment"
-                        />
-                      </div>
-
-                      <input type="submit" value="Submit"  className="btn btn_theme btn_md"/>
+                      
+ <br />
+                      <input type="submit" value="Submit"  className="btn btn_theme btn_md" />
                     </form>
                   </div>
                 </div>
                 {/* payment system */}
-                <div className="booking_tour_form_box">
+                {/* <div className="booking_tour_form_box">
                   <SubHeading title="Payment method" />
                   <Payment />
-                </div>
+                </div> */}
                 <br /> <br />
                 {/* check box */}
-                <div className="booking_tour_form_submit">
+                {/* <div className="booking_tour_form_submit">
                   <div className="form-check write_spical_check">
                     <input
                       className="form-check-input"
@@ -192,7 +180,7 @@ const Booking = ({ id, userId }) => {
                   <a href="/booking-confirmation" className="btn btn_theme btn_md">
                     Submit
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
             {/* right section */}
@@ -214,13 +202,13 @@ const Booking = ({ id, userId }) => {
                     </div>
                     <div className="tour_package_details_bar_price">
                       <h3>
-                        Price $ {data?.price} <sub>/Per person</sub>{" "}
+                        Price $ {data?.price} <sub>/Per Room</sub>{" "}
                       </h3>
                     </div>
                   </div>
                 </div>
                 <br />
-                <div className="tour_detail_right_sidebar">
+                {/* <div className="tour_detail_right_sidebar">
                   <div className="tour_details_right_boxed">
                     <SubHeading title="Travel Date" />
                     <div className="edit_date_form">
@@ -261,7 +249,7 @@ const Booking = ({ id, userId }) => {
                       <p>Edit person</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <br />
 
@@ -289,7 +277,7 @@ const Booking = ({ id, userId }) => {
                 </div> */}
 
                 <br />
-                <div className="tour_detail_right_sidebar">
+                {/* <div className="tour_detail_right_sidebar">
                   <div className="tour_details_right_boxed">
                     <SubHeading title="Booking Amount" />
 
@@ -311,7 +299,7 @@ const Booking = ({ id, userId }) => {
                       <h5>$ 567</h5>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

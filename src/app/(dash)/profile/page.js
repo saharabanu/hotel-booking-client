@@ -1,128 +1,40 @@
 "use client";
-import { EyeOutlined } from "@ant-design/icons";
-import DynamicTable from "../../../component/others/DynamicTable";
 
 import { getUserInfo } from "../../../services/auth.service";
 import { useGetSingleUserQuery } from "../../../redux/api/userApi";
 import Image from "next/image";
 import profileImg from "../../../assets/images/profileImg.jpg";
-import { FaBagShopping } from "react-icons/fa6";
-import { FaSync } from "react-icons/fa";
+import { useDeleteBookingMutation, useGetAllBookingsQuery } from "../../../redux/api/bookingApi";
+import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
+import toast from "react-hot-toast";
 
 const ProfilePage = () => {
-  const { id } = getUserInfo();
+  const { id, email } = getUserInfo();
   const { data } = useGetSingleUserQuery(id);
+  const { data: bookingData } = useGetAllBookingsQuery({});
+  const [deleteBooking] = useDeleteBookingMutation();
+  const userBookings = bookingData?.bookings.filter((booking) => booking?.userId?.email === email);
+  
 
-  const columns = [
-    {
-      title: "SL No.",
-      dataIndex: "id",
-    },
+  const handleDelete = async (id) => {
+    const res = await deleteBooking(id);
+    // console.log(res)
+    // toast.success("Booking Deleted Successfully");
 
-    {
-      title: "Booking ID",
-      dataIndex: "bookingId",
-    },
+    if (res._id === id) {
+      toast.success("Booking Deleted Successfully");
+    } else {
+      toast.error("Something Went Wrong");
+    }
+  };
 
-    {
-      title: "Booking Type",
-      dataIndex: "bookingType",
-    },
-    {
-      title: "Booking Amount",
-      dataIndex: "amount",
-    },
-    {
-      title: "Status",
-      dataIndex: "status",
-    },
-    {
-      title: "Action",
-      dataIndex: "action",
-    },
-  ];
-
-  const dataSource = [
-    {
-      id: "1",
-      bookingId: "#JK589V80",
-      bookingType: "Hotel",
-      amount: "45.00",
-      status: "Completed",
-      action: <EyeOutlined />,
-    },
-    {
-      id: "2",
-      bookingId: "#JK589V80",
-      bookingType: "Hotel",
-      amount: "45.00",
-      status: "Completed",
-      action: <EyeOutlined />,
-    },
-    {
-      id: "3",
-      bookingId: "#JK589V80",
-      bookingType: "Hotel",
-      amount: "45.00",
-      status: "Pending",
-      action: <EyeOutlined />,
-    },
-    {
-      id: "4",
-      bookingId: "#JK589V80",
-      bookingType: "Hotel",
-      amount: "45.00",
-      status: "Completed",
-      action: <EyeOutlined />,
-    },
-    {
-      id: "5",
-      bookingId: "#JK589V80",
-      bookingType: "Hotel",
-      amount: "45.00",
-      status: "Completed",
-      action: <EyeOutlined />,
-    },
-    {
-      id: "6",
-      bookingId: "#JK589V80",
-      bookingType: "Hotel",
-      amount: "45.00",
-      status: "Pending",
-      action: <EyeOutlined />,
-    },
-    {
-      id: "7",
-      bookingId: "#JK589V80",
-      bookingType: "Hotel",
-      amount: "45.00",
-      status: "Completed",
-      action: <EyeOutlined />,
-    },
-    {
-      id: "8",
-      bookingId: "#JK589V80",
-      bookingType: "Hotel",
-      amount: "45.00",
-      status: "Completed",
-      action: <EyeOutlined />,
-    },
-    {
-      id: "9",
-      bookingId: "#JK589V80",
-      bookingType: "Hotel",
-      amount: "45.00",
-      status: "Completed",
-      action: <EyeOutlined />,
-    },
-  ];
+  
 
   return (
     <>
       <br />
-
       <div>
-      {/* <div className="profile-right-div">
+        {/* <div className="profile-right-div">
           <div className="tour_booking_form_box ">
             <div className="booking_success_area">
               <div className="" style={{color:'#818090', fontSize:'100px'}}>
@@ -178,24 +90,58 @@ const ProfilePage = () => {
             </div>
           </div>
         </div>
-       
-       
       </div>
       <br /> <br />
       <div className="booking-profile">
         <h3>My Booking History</h3>
-        <DynamicTable
-          // loading={loading}
-          columns={columns}
-          dataSource={dataSource}
-          // dataSource={admins}
-          // pageSize={size}
-          // totalPAge={meta?.total}
-          // showSizeChanger={true}
-          // onPaginationChange={onPaginationChange}
-          // onTableChange={onTableChange}
-          // showPagination={true}
-        />
+
+
+
+        <table className="table lg:table-lg table-xs">
+        <thead className="bg-cBlue text-gray-100 lg:text-base">
+          <tr>
+            <th>Serial</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>User Name</th>
+            <th>Status</th>
+
+            <th>Cancel</th>
+          </tr>
+        </thead>
+        <tbody>
+          {userBookings &&
+            userBookings?.map((item, index) => (
+              <tr key={item?._id}>
+                <td>{index + 1}</td>
+                <td>{item?.serviceId?.title}</td>
+                <td>{item?.startDate}</td>
+                <td>{item?.endDate}</td>
+                <td>{item?.serviceId?.price}</td>
+                <td>{item?.serviceId?.category}</td>
+                <td>{item?.name}</td>
+                <td>
+                    {item?.status ? (
+                      <span className="text-cBlue">Accepted</span>
+                    ) : (
+                      <span className="text-cOrange">Pending</span>
+                    )}
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => handleDelete(item?._id)}
+                      className="text-xl text-cOrange"
+                    >
+                      <AiOutlineDelete />
+                    </button>
+                  </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
       </div>
     </>
   );

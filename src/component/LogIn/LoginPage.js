@@ -37,7 +37,7 @@ const LoginPage = () => {
         });
   
         // Redirect to the home page
-        router.push('/profile');
+        router.push('/');
       }
       else{
         message.error("OOOPs!! Your email or password doesn't match")

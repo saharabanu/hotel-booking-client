@@ -49,7 +49,7 @@ const UiHeader = () => {
                   </li>
                   {userLoggedIn && (
                     <li>
-                      <a href="/profile">Profile</a>
+                      <a href="/profile">Dashboard</a>
                     </li>
                   )}
                   
