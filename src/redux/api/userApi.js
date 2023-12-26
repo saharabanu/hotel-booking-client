@@ -24,16 +24,7 @@ getUsers: build.query({
   providesTags: ["user"],
 }),
 
-
-    // // single user
-    // getSingleUser: build.query({
-    //   query: (id) => ({
-    //     url: `${USERS}/${id}`,
-    //     method: "GET",
-    //   }),
-    //   providesTags: ["user"],
-    // }),
-
+   
     getSingleUser: build.query({
       query: (id) => ({
         url: `${USERS}/${id}`,
