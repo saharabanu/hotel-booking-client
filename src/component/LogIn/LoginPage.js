@@ -12,6 +12,7 @@ import { storeUserInfo } from '../../services/auth.service';
 import { useUserLoginMutation } from '../../redux/api/authApi';
 import { message } from 'antd';
 import Heading from '../ui/reUsable/Heading';
+import toast from 'react-hot-toast';
 
 
 
@@ -28,25 +29,39 @@ const LoginPage = () => {
       //  console.log(res)
      
       // Check if the user is authenticated
-      if (res?.accessToken) {
+      // if (res?.accessToken) {
        
-        Swal.fire({
-          icon: 'success',
-          title: 'Good job!',
-          text: 'Logged In Successfully!',
-        });
+      //   Swal.fire({
+      //     icon: 'success',
+      //     title: 'Good job!',
+      //     text: 'Logged In Successfully!',
+      //   });
   
-        // Redirect to the home page
-        router.push('/');
-      }
-      else{
-        message.error("OOOPs!! Your email or password doesn't match")
+      //   // Redirect to the home page
+      //   router.push('/');
+      // }
+      // else{
+      //   message.error("OOOPs!! Your email or password doesn't match")
+      // }
+
+      if (res?.accessToken) {
+        // User login successful
+        storeUserInfo({ accessToken: res?.accessToken });
+
+        toast.success("Logged In Successfully");
+        router.push("/");
+      } else if (res?.message == "User not found here!") {
+        // User not found or other error from the server
+        toast.error("User not found or other error. Please check your credentials.");
+      } else {
+        // User not found or other error
+        toast.error("OOOPs!! Your email or password doesn't match");
       }
       
 
-      storeUserInfo({ accessToken: res?.accessToken });
+      // storeUserInfo({ accessToken: res?.accessToken });
     } catch (err) {
-      console.error(err.message);
+      toast.error(err.message);
     }
   };
 // console.log(storeUserInfo())

@@ -1045,6 +1045,7 @@ margin: 18px 0;
 }
 
 .all_review_date_area{
+    padding-top:10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1055,12 +1056,13 @@ margin: 18px 0;
 }
 .all_review_text img{
     position: absolute;
-    top:-55px;
-    left:37%
+    top:-10px;
+    left:37%;
+    
 }
 .all_review_text h4{
    text-align: center;
-   margin-top: -40px;
+   /* margin-top: -4px; */
    font-size: 20px;
    font-weight: 700;
    color: #8B3EEA;

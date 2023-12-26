@@ -45,7 +45,7 @@ getUsers: build.query({
      // update User
      updateUser: build.mutation({
       query: (data) => ({
-        url: `${USERS}/${data.id}`,
+        url: `${USERS}/${data?.id}`,
         method: "PATCH",
         data: data.body
 

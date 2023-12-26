@@ -14,6 +14,7 @@ const UiHeader = () => {
   const router = useRouter();
   const { id, email } = getUserInfo();
   const { data } = useGetSingleUserQuery(id);
+  // console.log(data)
   const [isMobile, setIsMobile] = useState(false)
 
   // console.log(data)
@@ -59,7 +60,7 @@ const UiHeader = () => {
               <div style={{display:"flex", alignItems:"center"}}>
                 {userLoggedIn && (
                   <span style={{ fontSize: "20px", color: "#fff", paddingRight: "10px" }}>
-                    {email}{" "}
+                    {data?.name}{" "}
                   </span>
                 )}
 
