@@ -8,6 +8,7 @@ import {useUserSignupMutation} from '../../redux/api/authApi';
 import Swal from 'sweetalert2'
 import { storeUserInfo } from "../../services/auth.service";
 import Heading from '../ui/reUsable/Heading'
+import toast from "react-hot-toast";
 
 
 const RegisterPage = () => {
@@ -19,26 +20,44 @@ const RegisterPage = () => {
 
   const onSubmit = async (data) => {
     try {
-     console.log(data)
-      const res = await userSignup({...data}).unwrap();
-      console.log(res)
+
+      const res = await userSignup({ ...data }).unwrap();
       
-      if(res?.accessToken){
+      
+      if (res?.accessToken){
+        // console.log(res, ' from res');
+        storeUserInfo({ accessToken: res?.accessToken })
         Swal.fire({
-          icon: 'success',
-          title: 'Hurrah!',
-          text: 'User Registered Successfully!',
-        });
-        router.push('/')
-         
+              icon: 'success',
+               title: 'Hurrah!',
+              text: 'User Registered Successfully!',
+             });
+        router.push("/")
       }
       else{
-        alert("User does Not registered")
+        toast.error("Email already exists. Please use a different email.");
       }
-      storeUserInfo({ accessToken: res?.accessToken });
+      
+    //  console.log(data)
+    //   const res = await userSignup({...data}).unwrap();
+    //   console.log(res)
+      
+    //   if(res?.accessToken){
+    //     Swal.fire({
+    //       icon: 'success',
+    //       title: 'Hurrah!',
+    //       text: 'User Registered Successfully!',
+    //     });
+    //     router.push('/')
+         
+    //   }
+    //   else{
+    //     alert("User does Not registered")
+    //   }
+    //   storeUserInfo({ accessToken: res?.accessToken });
     }
     catch(err) {
-      console.error(err.message)
+      toast.error(err.message)
     }
     
   };
